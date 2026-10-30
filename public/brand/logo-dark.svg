@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+  <defs>
+    <linearGradient id="logoDarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08090B" />
+      <stop offset="100%" stop-color="#2D3139" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Monogram Icon -->
+  <g transform="translate(6, 6) scale(0.48)">
+    <rect x="2" y="2" width="96" height="96" rx="20" fill="#E8E7E2" stroke="rgba(0,0,0,0.14)" stroke-width="1.8"/>
+    
+    <!-- E -->
+    <path d="M28 26 V74 M28 26 H46 M28 50 H42 M28 74 H46" 
+          stroke="url(#logoDarkGrad)" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- N -->
+    <path d="M54 74 V26 L74 74 V26" 
+          stroke="url(#logoDarkGrad)" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- Pulse -->
+    <path d="M12 62 H38 L43 56 L47 68 L51 52 L55 62 H88" 
+          stroke="#4F545E" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="68" y="29" 
+        font-family="'Geist', 'Manrope', system-ui, -apple-system, sans-serif" 
+        font-size="16" 
+        font-weight="700" 
+        letter-spacing="0.18em" 
+        fill="#0D0F12">EBBAD NAZIR</text>
+
+  <circle cx="205" cy="24.5" r="1.5" fill="#4F545E" />
+
+  <!-- Subtitle -->
+  <text x="68" y="44" 
+        font-family="'Geist', 'Manrope', system-ui, -apple-system, sans-serif" 
+        font-size="9" 
+        font-weight="600" 
+        letter-spacing="0.22em" 
+        fill="#555A64">MBBS &bull; ASPIRING SURGEON</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+  <defs>
+    <linearGradient id="logoSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#D4D7DC" />
+      <stop offset="100%" stop-color="#9BA0A8" />
+    </linearGradient>
+    <linearGradient id="logoPulse" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.1)" />
+      <stop offset="45%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.2)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Monogram Icon -->
+  <g transform="translate(6, 6) scale(0.48)">
+    <rect x="2" y="2" width="96" height="96" rx="20" fill="#111317" stroke="rgba(255,255,255,0.18)" stroke-width="1.8"/>
+    
+    <!-- E -->
+    <path d="M28 26 V74 M28 26 H46 M28 50 H42 M28 74 H46" 
+          stroke="url(#logoSilver)" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- N -->
+    <path d="M54 74 V26 L74 74 V26" 
+          stroke="url(#logoSilver)" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- Precision Pulse -->
+    <path d="M12 62 H38 L43 56 L47 68 L51 52 L55 62 H88" 
+          stroke="url(#logoPulse)" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="68" y="29" 
+        font-family="'Geist', 'Manrope', system-ui, -apple-system, sans-serif" 
+        font-size="16" 
+        font-weight="700" 
+        letter-spacing="0.18em" 
+        fill="#F6F5F1">EBBAD NAZIR</text>
+
+  <!-- Hairline Divider Dot -->
+  <circle cx="205" cy="24.5" r="1.5" fill="#C1C5CC" />
+
+  <!-- Subtitle / Tagline -->
+  <text x="68" y="44" 
+        font-family="'Geist', 'Manrope', system-ui, -apple-system, sans-serif" 
+        font-size="9" 
+        font-weight="500" 
+        letter-spacing="0.22em" 
+        fill="#A8ADB5">MBBS &bull; ASPIRING SURGEON</text>
+</svg>
