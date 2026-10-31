@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Stethoscope, GraduationCap, MapPin, Award } from "lucide-react";
+import { Sparkles, Stethoscope, GraduationCap, Award } from "lucide-react";
 import { PROFILE } from "@/content/profile";
 
 export default function StatusTicker() {
@@ -9,7 +9,6 @@ export default function StatusTicker() {
     { icon: Award, text: `MBBS Session ${PROFILE.session} • Fourth Year` },
     { icon: Stethoscope, text: "Surgery Department Intern — FGPC Islamabad" },
     { icon: Sparkles, text: `"${PROFILE.signatureLine}"` },
-    { icon: MapPin, text: PROFILE.location.formatted },
     { icon: Award, text: "Verified Undergraduate Medical Record" },
   ];
 

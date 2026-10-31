@@ -50,27 +50,29 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="rounded-3xl bg-white p-8 sm:p-12 border border-[#E2DED2] shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-6 relative">
+    <div className="relative overflow-hidden rounded-[2rem] bg-[#111318] p-7 text-[#F7F2E8] shadow-[0_24px_70px_rgba(18,20,26,0.18)] sm:p-10">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E2C98E] to-transparent" aria-hidden="true" />
+      <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#C99A43]/10 blur-3xl" aria-hidden="true" />
       <div className="space-y-2 relative z-10">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-xs text-[#BD903C] uppercase tracking-widest flex items-center gap-1.5 font-bold">
+          <span className="font-mono text-[10px] text-[#E2C98E] uppercase tracking-[0.18em] flex items-center gap-1.5 font-bold">
             <Sparkles className="w-4 h-4 text-[#BD903C]" />
             DIRECT COMPOSER
           </span>
-          <span className="font-mono text-xs text-[#848A96] font-semibold">HONEST MAILTO DISPATCH</span>
+          <span className="font-mono text-[10px] text-white/45 font-semibold">PRIVATE MAIL HANDOFF</span>
         </div>
-        <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#12141A]">
+        <h3 className="font-editorial text-3xl sm:text-4xl font-semibold text-[#F7F2E8]">
           Send a Professional Note
         </h3>
-        <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed font-sans">
+        <p className="max-w-xl text-xs sm:text-sm text-white/60 leading-relaxed font-sans">
           This form formats your message and launches your native email client directly to <strong>{PROFILE.contact.email}</strong>. No third-party servers store your private correspondence.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} noValidate className="space-y-5 relative z-10">
+      <form onSubmit={handleSubmit} noValidate className="relative z-10 grid gap-5 sm:grid-cols-2">
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block text-xs font-mono uppercase text-[#12141A] font-bold mb-2">
+          <label htmlFor="name" className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/75 font-bold mb-2">
             Full Name <span className="text-[#BD903C]">*</span>
           </label>
           <input
@@ -79,8 +81,8 @@ export default function ContactForm() {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="e.g. Dr. Ayesha Khan / Prof. Tariq"
-            className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm text-[#12141A] placeholder:text-[#848A96]/60 focus:outline-none transition-colors ${
-              errors.name ? "border-rose-500 focus:border-rose-500" : "border-[#E2DED2] focus:border-[#BD903C]"
+            className={`w-full px-4 py-3.5 rounded-xl bg-white/[0.06] border text-sm text-white placeholder:text-white/35 focus:outline-none transition-colors ${
+              errors.name ? "border-rose-500 focus:border-rose-500" : "border-white/15 focus:border-[#E2C98E]"
             }`}
           />
           {errors.name && (
@@ -92,7 +94,7 @@ export default function ContactForm() {
 
         {/* Email Field */}
         <div>
-          <label htmlFor="email" className="block text-xs font-mono uppercase text-[#12141A] font-bold mb-2">
+          <label htmlFor="email" className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/75 font-bold mb-2">
             Your Email Address <span className="text-[#BD903C]">*</span>
           </label>
           <input
@@ -101,8 +103,8 @@ export default function ContactForm() {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             placeholder="colleague@institution.org"
-            className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm text-[#12141A] placeholder:text-[#848A96]/60 focus:outline-none transition-colors ${
-              errors.email ? "border-rose-500 focus:border-rose-500" : "border-[#E2DED2] focus:border-[#BD903C]"
+            className={`w-full px-4 py-3.5 rounded-xl bg-white/[0.06] border text-sm text-white placeholder:text-white/35 focus:outline-none transition-colors ${
+              errors.email ? "border-rose-500 focus:border-rose-500" : "border-white/15 focus:border-[#E2C98E]"
             }`}
           />
           {errors.email && (
@@ -113,8 +115,8 @@ export default function ContactForm() {
         </div>
 
         {/* Subject Field */}
-        <div>
-          <label htmlFor="subject" className="block text-xs font-mono uppercase text-[#12141A] font-bold mb-2">
+        <div className="sm:col-span-2">
+          <label htmlFor="subject" className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/75 font-bold mb-2">
             Subject <span className="text-[#BD903C]">*</span>
           </label>
           <input
@@ -123,8 +125,8 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             placeholder="Clinical Mentorship / Academic Dialogue / Research"
-            className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm text-[#12141A] placeholder:text-[#848A96]/60 focus:outline-none transition-colors ${
-              errors.subject ? "border-rose-500 focus:border-rose-500" : "border-[#E2DED2] focus:border-[#BD903C]"
+            className={`w-full px-4 py-3.5 rounded-xl bg-white/[0.06] border text-sm text-white placeholder:text-white/35 focus:outline-none transition-colors ${
+              errors.subject ? "border-rose-500 focus:border-rose-500" : "border-white/15 focus:border-[#E2C98E]"
             }`}
           />
           {errors.subject && (
@@ -135,18 +137,18 @@ export default function ContactForm() {
         </div>
 
         {/* Message Field */}
-        <div>
-          <label htmlFor="message" className="block text-xs font-mono uppercase text-[#12141A] font-bold mb-2">
+        <div className="sm:col-span-2">
+          <label htmlFor="message" className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/75 font-bold mb-2">
             Message <span className="text-[#BD903C]">*</span>
           </label>
           <textarea
             id="message"
-            rows={5}
+            rows={4}
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Write your note, question, or discussion point here..."
-            className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm text-[#12141A] placeholder:text-[#848A96]/60 focus:outline-none transition-colors resize-y ${
-              errors.message ? "border-rose-500 focus:border-rose-500" : "border-[#E2DED2] focus:border-[#BD903C]"
+            className={`w-full px-4 py-3.5 rounded-xl bg-white/[0.06] border text-sm text-white placeholder:text-white/35 focus:outline-none transition-colors resize-y ${
+              errors.message ? "border-rose-500 focus:border-rose-500" : "border-white/15 focus:border-[#E2C98E]"
             }`}
           />
           {errors.message && (
@@ -159,14 +161,14 @@ export default function ContactForm() {
         {/* Submit / Compose Button */}
         <button
           type="submit"
-          className="w-full inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-xs font-bold tracking-widest uppercase bg-[#12141A] text-white hover:bg-[#BD903C] hover:text-[#12141A] transition-all duration-300 shadow-md active:scale-95"
+          className="sm:col-span-2 w-full inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-xs font-bold tracking-widest uppercase bg-[#E2C98E] text-[#12141A] hover:bg-white transition-all duration-300 shadow-[0_12px_30px_rgba(226,201,142,0.18)] active:scale-95"
         >
           <Send className="w-4 h-4" />
           <span>LAUNCH IN EMAIL CLIENT</span>
         </button>
 
         {composerPrepared && (
-          <div className="p-5 rounded-xl bg-[#FAF9F5] border border-[#BD903C]/40 text-xs sm:text-sm text-[#12141A] flex items-start gap-3">
+          <div className="sm:col-span-2 p-5 rounded-xl bg-white/[0.06] border border-[#E2C98E]/40 text-xs sm:text-sm text-white/80 flex items-start gap-3">
             <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-[#BD903C] mt-0.5" />
             <p>
               Your default email client was opened with your message pre-filled to <strong>{PROFILE.contact.email}</strong>. If your mail client did not open automatically, please click the direct email link on the left.

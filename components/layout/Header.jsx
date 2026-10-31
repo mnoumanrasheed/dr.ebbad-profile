@@ -36,7 +36,7 @@ export default function Header() {
     <>
       <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-4 sm:px-6 pointer-events-none transition-all duration-500">
         <div
-          className={`max-w-7xl mx-auto px-4 sm:px-5 py-3 rounded-[1.35rem] pointer-events-auto transition-all duration-500 backdrop-blur-2xl flex items-center justify-between gap-3 ${
+          className={`max-w-7xl mx-auto px-4 sm:px-5 py-3 rounded-[1.35rem] pointer-events-auto transition-all duration-500 backdrop-blur-2xl flex items-center justify-between gap-3 animate-[header-reveal_700ms_cubic-bezier(0.16,1,0.3,1)_both] ${
             isLightMode
               ? "bg-[#0B0D12]/[0.96] shadow-[0_18px_45px_rgba(0,0,0,0.30)]"
               : "bg-[#0B0D12]/90 shadow-[0_18px_48px_rgba(0,0,0,0.50)]"
@@ -44,30 +44,26 @@ export default function Header() {
         >
           {/* 1. Left: Brand Identity (Clicking logo navigates to Home) */}
           <div className="flex items-center gap-3 pl-1 shrink-0">
-            <Logo size="small" variant="light" />
-            <div className="hidden lg:block h-7 w-px bg-white/15" />
-            <div className="hidden lg:block leading-tight">
-              <span className="block font-mono text-[9px] tracking-[0.18em] text-[#E2C98E] uppercase">Medical Portfolio</span>
-              <span className="block mt-0.5 text-[10px] text-white/45">Ebbad Nazir</span>
-            </div>
+            <Logo size="small" variant="light" showTagline={false} />
           </div>
 
           {/* 2. Center: 4 Curated Routes (Home & Contact labels removed as requested) */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden md:flex items-center gap-1 rounded-xl bg-white/[0.045] p-1"
+            className="hidden md:flex items-center gap-5 lg:gap-7"
           >
-            {NAV_LINKS.map((route) => {
+            {NAV_LINKS.map((route, index) => {
               const isActive = pathname === route.href;
 
               return (
                 <Link
                   key={route.href}
                   href={route.href}
-                  className={`group relative px-3.5 lg:px-4 py-2 rounded-lg text-[12px] font-medium tracking-wide transition-all duration-300 select-none ${
+                  style={{ animationDelay: `${140 + index * 70}ms` }}
+                  className={`group relative py-2 text-[12px] font-medium tracking-wide transition-colors duration-300 select-none animate-[nav-link-reveal_500ms_cubic-bezier(0.16,1,0.3,1)_both] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#E2C98E] after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                     isActive
-                      ? "text-[#12141A] font-bold bg-[#E2C98E] shadow-[0_2px_12px_rgba(226,201,142,0.20)]"
-                      : "text-white/65 hover:text-white hover:bg-white/[0.08]"
+                      ? "text-[#E2C98E] font-bold after:scale-x-100"
+                      : "text-white/65 hover:text-[#F5F2E9]"
                   }`}
                 >
                   <span className="relative z-10 flex items-center gap-2">

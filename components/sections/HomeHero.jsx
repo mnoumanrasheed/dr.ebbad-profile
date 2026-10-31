@@ -101,11 +101,7 @@ export default function HomeHero() {
           <span className="reference-hero__guide reference-hero__guide--left" />
           <span className="reference-hero__guide reference-hero__guide--center" />
           <span className="reference-hero__guide reference-hero__guide--right" />
-          <span className="reference-hero__folio">01 / PORTFOLIO</span>
         </div>
-
-        {/* Micro eyebrow */}
-        <p className="reference-hero__micro-eyebrow">MEDICAL PORTFOLIO / 2026</p>
 
         {/* Separate name zones keep the portrait silhouette unobstructed. */}
         <div className="reference-hero__words" aria-hidden="true">

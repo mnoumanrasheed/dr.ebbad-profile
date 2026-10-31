@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ArrowUpRight, Clock, ShieldCheck, Stethoscope, Sparkles } from "lucide-react";
+import { ArrowUpRight, Clock, ShieldCheck } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionEyebrow from "@/components/ui/SectionEyebrow";
 import ContactForm from "@/components/sections/ContactForm";
@@ -41,7 +41,7 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-4">
-              {c.channels.map((chan, idx) => (
+              {c.channels.filter((chan) => chan.label !== "Location").map((chan, idx) => (
                 <div
                   key={idx}
                   className="rounded-2xl bg-white p-6 border border-[#E2DED2] shadow-sm hover:border-[#BD903C] hover:shadow-md transition-all duration-300 space-y-2 relative"
@@ -86,11 +86,11 @@ export default function ContactPage() {
                 <span>Contact Transparency</span>
               </div>
               <p className="font-sans leading-relaxed text-[#2C313E]">
-                This portfolio operates without tracking cookies or contact databases. Form submissions hand off securely to your own email client, ensuring absolute privacy.
+                This portfolio operates without tracking cookies or contact databases. Form submissions hand off securely to your own email client, keeping your correspondence private.
               </p>
               <div className="pt-2 border-t border-[#E2DED2] flex items-center gap-2 text-xs text-[#5A6172] font-sans">
                 <ShieldCheck className="w-4 h-4 text-[#BD903C]" />
-                <span>Regional privacy strictly preserved (city and district documented).</span>
+                <span>No physical address is published on this page.</span>
               </div>
             </div>
           </div>

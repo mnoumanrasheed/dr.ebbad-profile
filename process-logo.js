@@ -63,11 +63,11 @@ const path = require('path');
   const fs = require('fs');
   fs.copyFileSync(outFaviconPng, outFaviconIco);
 
-  // The browser icons use the clean vector monogram, not the legacy raster logo.
-  const monogramPath = path.resolve('public/brand/monogram.svg');
-  await sharp(monogramPath).resize(64, 64).png().toFile(outFaviconPng);
-  await sharp(monogramPath).resize(512, 512).png().toFile(outAppIcon);
-  await sharp(monogramPath).resize(180, 180).png().toFile(outAppleIcon);
+  // The browser icons use the supplied transparent medical monogram.
+  const monogramPath = path.resolve('public/brand/ebbad-nazir-mark.png');
+  await sharp(monogramPath).resize(64, 64, { fit: 'contain' }).png().toFile(outFaviconPng);
+  await sharp(monogramPath).resize(512, 512, { fit: 'contain' }).png().toFile(outAppIcon);
+  await sharp(monogramPath).resize(180, 180, { fit: 'contain' }).png().toFile(outAppleIcon);
   fs.copyFileSync(outFaviconPng, outFaviconIco);
 
   console.log('Logo assets generated');

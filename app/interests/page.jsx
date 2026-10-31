@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, Crosshair, HeartPulse, Brain, BookOpen, ShieldAlert, Sparkles, CheckCircle2, Milestone, Stethoscope, Compass } from "lucide-react";
+import { Crosshair, HeartPulse, Brain, BookOpen, ShieldAlert, Sparkles } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionEyebrow from "@/components/ui/SectionEyebrow";
 import CompactCTA from "@/components/sections/CompactCTA";
@@ -162,24 +161,6 @@ export default function InterestsPage() {
           </div>
         </div>
 
-        {/* Next Route Navigation */}
-        <div className="pt-10 border-t border-[#E2DED2] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <span className="font-mono text-[10px] text-[#BD903C] uppercase tracking-widest block font-bold">
-              FINAL SECTION
-            </span>
-            <span className="text-base font-semibold text-[#12141A]">
-              Contact & Professional Inquiries
-            </span>
-          </div>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full text-xs font-bold tracking-widest uppercase bg-[#12141A] text-white hover:bg-[#BD903C] hover:text-[#12141A] transition-all duration-300 shadow-md"
-          >
-            <span>CONNECT WITH EBBAD</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
       </div>
 
       <div className="pt-16">

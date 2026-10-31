@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { X, ArrowUpRight, Mail, Phone, MapPin, Award } from "lucide-react";
+import { X, ArrowUpRight, Mail, Phone, Award } from "lucide-react";
 import { PROFILE } from "@/content/profile";
 
 export default function MobileMenu({ isOpen, onClose }) {
@@ -122,10 +122,6 @@ export default function MobileMenu({ isOpen, onClose }) {
           >
             {PROFILE.contact.phoneDisplay}
           </a>
-        </div>
-        <div className="flex items-center gap-2.5">
-          <MapPin className="w-4 h-4 text-[#E2C98E] flex-shrink-0" />
-          <span>{PROFILE.location.formatted}</span>
         </div>
         <div className="pt-2 flex items-center gap-2 text-[11px] text-[#848A96] font-sans border-t border-white/[0.05]">
           <Award className="w-3.5 h-3.5 text-[#E2C98E]" />

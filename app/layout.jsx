@@ -27,7 +27,7 @@ export const metadata = {
       { url: "/favicon.ico" },
     ],
     shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
