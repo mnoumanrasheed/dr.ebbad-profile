@@ -36,10 +36,10 @@ export default function Header() {
     <>
       <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-4 sm:px-6 pointer-events-none transition-all duration-500">
         <div
-          className={`max-w-7xl mx-auto px-3 sm:px-4 py-2.5 rounded-[1.35rem] pointer-events-auto transition-all duration-500 backdrop-blur-2xl flex items-center justify-between gap-3 ${
+          className={`max-w-7xl mx-auto px-4 sm:px-5 py-3 rounded-[1.35rem] pointer-events-auto transition-all duration-500 backdrop-blur-2xl flex items-center justify-between gap-3 ${
             isLightMode
-              ? "bg-[#0B0D12]/[0.98] border border-[#F3D98C]/40 shadow-[0_18px_45px_rgba(0,0,0,0.34)]"
-              : "bg-[#0B0D12]/95 border border-[#F3D98C]/25 shadow-[0_18px_48px_rgba(0,0,0,0.58)]"
+              ? "bg-[#0B0D12]/[0.96] shadow-[0_18px_45px_rgba(0,0,0,0.30)]"
+              : "bg-[#0B0D12]/90 shadow-[0_18px_48px_rgba(0,0,0,0.50)]"
           }`}
         >
           {/* 1. Left: Brand Identity (Clicking logo navigates to Home) */}
@@ -55,7 +55,7 @@ export default function Header() {
           {/* 2. Center: 4 Curated Routes (Home & Contact labels removed as requested) */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden md:flex items-center gap-1 rounded-xl border border-white/[0.07] bg-black/20 p-1"
+            className="hidden md:flex items-center gap-1 rounded-xl bg-white/[0.045] p-1"
           >
             {NAV_LINKS.map((route) => {
               const isActive = pathname === route.href;

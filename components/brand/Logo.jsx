@@ -24,9 +24,9 @@ export default function Logo({ variant = "light", size = "default", className = 
       aria-label="Ebbad Nazir - Home"
       className={`group inline-flex items-center gap-3 transition-all duration-300 select-none ${className}`}
     >
-      <span className={`relative inline-flex items-center justify-center rounded-xl border border-current/25 bg-current/[0.07] ${textColor}`}>
+      <span className={`relative inline-flex items-center justify-center ${textColor}`}>
         <Image
-          src="/favicon.png"
+          src="/brand/monogram.svg"
           alt=""
           width={64}
           height={64}

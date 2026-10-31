@@ -430,7 +430,7 @@ body {
   width: min-content;
   white-space: nowrap;
   font-family: var(--font-sans);
-  font-size: clamp(3.4rem, 5vw, 4.75rem);
+  font-size: clamp(4.6rem, 7vw, 6.25rem);
   font-weight: 800;
   line-height: .9;
   letter-spacing: -.06em;
@@ -444,7 +444,11 @@ body {
 }
 
 .reference-hero__word--left { left: clamp(1.5rem, 5vw, 5rem); top: 22%; }
-.reference-hero__word--right { right: clamp(1rem, 2vw, 1.5rem); top: 39%; }
+.reference-hero__word--right {
+  right: clamp(1rem, 2vw, 1.5rem);
+  top: 39%;
+  font-size: clamp(4.2rem, 6.3vw, 5.75rem);
+}
 
 .reference-hero__folio {
   position: absolute;
@@ -628,7 +632,8 @@ body {
 }
 
 @media (max-width: 1279px) {
-  .reference-hero__word { font-size: clamp(2.9rem, 4.3vw, 3.75rem); }
+  .reference-hero__word { font-size: clamp(3.5rem, 5.8vw, 5rem); }
+  .reference-hero__word--right { font-size: clamp(3.2rem, 5.3vw, 4.55rem); }
   .reference-hero__word--left { left: 4%; top: 20%; }
   .reference-hero__word--right { right: 1rem; top: 38%; }
   .reference-hero__name { top: 16%; font-size: 17vw; }
