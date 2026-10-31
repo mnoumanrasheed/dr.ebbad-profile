@@ -722,64 +722,46 @@ body {
 }
 
 @media (max-width: 767px) {
-  .reference-hero__micro-eyebrow { top: 6.8rem; left: 1.25rem; font-size: .5rem; }
-  .reference-hero__words { width: 100vw; }
+  /* Preserve the desktop hero composition on small screens instead of stacking it. */
+  .reference-hero { min-height: max(720px, 100svh); }
+  .reference-hero__words { width: 100%; }
   .reference-hero__word {
     width: auto;
-    font-size: clamp(3.1rem, 13.25vw, 4.25rem);
+    font-size: clamp(2.5rem, 11.5vw, 4.1rem);
     line-height: .9;
     letter-spacing: -.055em;
   }
-  .reference-hero__word--left { left: 1.25rem; top: 9.25rem; }
-  .reference-hero__word--right { right: 1.25rem; top: 14rem; }
-  .reference-hero { min-height: 1360px; }
-  .reference-hero::after { background: linear-gradient(to bottom, transparent 35%, rgba(7,8,10,.05) 55%, #07080a 66%); }
+  .reference-hero__word--left { left: 5%; top: 17%; }
+  .reference-hero__word--right { right: 4%; top: 31%; font-size: clamp(2.35rem, 10.7vw, 3.8rem); }
+  .reference-hero::after { background: linear-gradient(90deg, rgba(5,6,8,.2), transparent 28%, transparent 75%, rgba(5,6,8,.16)); }
   .reference-hero__guide--left { left: 1.25rem; }
   .reference-hero__guide--center { left: 50%; }
   .reference-hero__guide--right { left: auto; right: 1.25rem; }
   .reference-hero__folio { display: none; }
-  .reference-hero__eyebrow { top: 6.8rem; left: 1.25rem; font-size: .5rem; }
-  .reference-hero__name {
-    top: 9.25rem;
-    left: 0;
-    width: 100vw;
-    white-space: normal;
-    translate: none;
-    transform: none;
-    text-align: center;
-    font-size: clamp(5.4rem, 25vw, 8rem);
-    line-height: .7;
-    letter-spacing: -.075em;
-  }
-  .reference-hero__name span { display: block; }
-  .reference-hero__name .reference-hero__name-space { display: none; }
   .reference-hero__portrait {
-    top: 18rem;
-    left: 50%;
+    top: 7.5rem;
+    left: 53%;
     bottom: auto;
-    width: min(96vw, 455px);
+    width: min(68vw, 300px);
     height: auto;
   }
   .reference-hero__portrait-image { width: 100%; height: auto; }
-  .reference-hero__statement { top: 55rem; left: 1.25rem; width: calc(100% - 2.5rem); }
-  .reference-hero__headline { font-size: clamp(2.6rem, 12.8vw, 4rem); line-height: .8; }
-  .reference-hero__intro { max-width: 330px; font-size: .78rem; }
-  .reference-hero__actions { align-items: stretch; flex-direction: column; width: min(100%, 285px); }
-  .reference-hero__button { justify-content: space-between; width: 100%; }
-  .reference-hero__aside { left: 1.25rem; right: auto; bottom: 2rem; width: calc(100% - 2.5rem); font-size: .7rem; }
-  .reference-hero__aside-rule { margin-block: .6rem; }
+  .reference-hero__statement { top: 49%; left: 5%; width: 42%; }
+  .reference-hero__headline { font-size: clamp(1.65rem, 7.7vw, 2.45rem); line-height: .8; }
+  .reference-hero__intro { max-width: 155px; margin-top: .6rem; font-size: .55rem; line-height: 1.4; }
+  .reference-hero__actions { align-items: flex-start; flex-direction: column; gap: .35rem; margin-top: .75rem; width: 100%; }
+  .reference-hero__button { min-height: 32px; padding: .48rem .62rem; font-size: .42rem; gap: .3rem; }
+  .reference-hero__aside { left: 74%; right: auto; bottom: 4%; width: 22%; font-size: .49rem; line-height: 1.4; }
+  .reference-hero__status { gap: .25rem; margin-bottom: .2rem; font-size: .46rem; letter-spacing: .025em; }
+  .reference-hero__status span { width: .3rem; height: .3rem; }
+  .reference-hero__aside-rule { width: 1.5rem; margin-block: .45rem; }
 }
 
 @media (max-width: 390px) {
-  .reference-hero__micro-eyebrow { left: 1rem; }
-  .reference-hero__word--left { left: 1rem; top: 9rem; }
-  .reference-hero__word--right { right: 1rem; top: 13.5rem; }
-  .reference-hero { min-height: 1340px; }
-  .reference-hero__eyebrow { left: 1rem; }
-  .reference-hero__portrait { top: 17.25rem; width: 100vw; }
-  .reference-hero__statement { top: 53rem; left: 1rem; width: calc(100% - 2rem); }
-  .reference-hero__headline { font-size: clamp(2.45rem, 12.5vw, 3.25rem); }
-  .reference-hero__aside { left: 1rem; width: calc(100% - 2rem); }
+  .reference-hero__word--left { left: 4%; }
+  .reference-hero__word--right { right: 3%; }
+  .reference-hero__portrait { width: 70vw; }
+  .reference-hero__statement { left: 4%; }
 }
 
 /* Film grain / medical precision subtle noise overlay */
