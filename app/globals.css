@@ -48,6 +48,9 @@
 .academic-dossier-line { height: 1px; background: rgba(26,27,30,.18); overflow: hidden; }
 .academic-dossier-line span { display: block; width: 20%; height: 100%; background: linear-gradient(90deg, transparent, #A57830, transparent); animation: academic-line-travel 4.2s linear infinite; }
 
+.academic-progress-bar { transform-origin: left; animation: academic-progress-glow 3.2s ease-in-out infinite; }
+@keyframes academic-progress-glow { 50% { opacity: .55; transform: scaleX(.72); } }
+
 @media (prefers-reduced-motion: reduce) {
   .academic-record-line span, .academic-record-wave, .academic-record-pulse { animation: none; }
 }
