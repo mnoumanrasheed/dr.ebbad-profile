@@ -2,11 +2,13 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dr-ebbad-profile.vercel.app";
+
 export const metadata = {
-  metadataBase: new URL("https://ebbadnazir.com"),
+  metadataBase: new URL(siteUrl),
   title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
   description:
-    "Explore the professional portfolio of Ebbad Nazir, a fourth-year MBBS student at Rai Medical College, Sargodha (2022–2027), with surgical department internship experience at FGPC Islamabad and an interest in surgery.",
+    "Explore the professional medical portfolio of Ebbad Nazir, a fourth-year MBBS student at Rai Medical College, Sargodha (2022–2027), with surgical department internship experience at FGPC Islamabad.",
   keywords: [
     "Ebbad Nazir",
     "MBBS Student",
@@ -20,9 +22,12 @@ export const metadata = {
   authors: [{ name: "Ebbad Nazir" }],
   creator: "Ebbad Nazir",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
@@ -50,8 +55,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className="font-sans antialiased bg-background text-foreground selection:bg-white/20 selection:text-white">
+    <html lang="en">
+      <body className="font-sans antialiased bg-[#FAF9F5] text-[#12141A] selection:bg-[#E2C98E]/40 selection:text-[#12141A]">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
         <main id="main-content" className="min-h-screen">
           {children}

@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, GraduationCap, CheckCircle2, Clock, Award, BookCheck } from "lucide-react";
+import { ArrowRight, GraduationCap, CheckCircle2, Clock, Award, BookCheck, Landmark, Check } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionEyebrow from "@/components/ui/SectionEyebrow";
+import CompactCTA from "@/components/sections/CompactCTA";
 import { PROFILE } from "@/content/profile";
 
 export const metadata = {
@@ -12,54 +13,57 @@ export const metadata = {
 
 export default function EducationPage() {
   return (
-    <div className="bg-background text-foreground pb-24">
+    <div className="bg-[#FAF9F5] text-[#12141A] pb-28">
       {/* Page Hero */}
       <PageHero
         eyebrowNumber="02"
-        eyebrowLabel="ACADEMIC FOUNDATION"
+        eyebrowLabel="ACADEMIC TRAJECTORY"
         title={PROFILE.education.heading}
         subtitle={PROFILE.education.subheading}
         breadcrumb={[{ label: "Education" }]}
         bgImage="/images/hero-education.jpg"
+        variant="light"
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-24 space-y-20">
         {/* Verified Academic Aggregate Notice Banner */}
-        <div className="p-6 rounded-2xl bg-surface/80 border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-1">
-            <span className="font-mono text-[11px] tracking-widest text-metallic uppercase flex items-center gap-2">
-              <Award className="w-3.5 h-3.5" />
-              VERIFIED RECORD DISCLOSURE
-            </span>
-            <h2 className="text-lg font-bold text-foreground">
-              Admission Aggregate & Formal Academic Metrics
-            </h2>
-            <p className="text-sm text-muted max-w-2xl leading-relaxed">
-              Academic metrics below represent authenticated board exam results and the official medical college admission aggregate (83%). MBBS marks are not represented as completed degree GPAs because the degree is actively in progress (fourth year, Session 2022–2027).
-            </p>
-          </div>
-          <div className="flex-shrink-0 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-center font-mono">
-            <span className="block text-2xl font-bold text-foreground">83%</span>
-            <span className="text-[10px] text-muted uppercase">MBBS Admission Aggregate</span>
+        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#E2DED2] shadow-[0_8px_30px_rgba(0,0,0,0.03)] relative overflow-hidden">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+            <div className="space-y-3">
+              <span className="font-mono text-xs tracking-widest text-[#BD903C] uppercase flex items-center gap-2 font-bold">
+                <Award className="w-4 h-4 text-[#BD903C]" />
+                OFFICIAL RECORD VERIFICATION
+              </span>
+              <h2 className="font-editorial text-2xl sm:text-3xl font-semibold text-[#12141A]">
+                Medical Admission Aggregate & Academic Records
+              </h2>
+              <p className="text-sm sm:text-base text-[#5A6172] max-w-2xl leading-relaxed font-sans">
+                Academic metrics below represent authenticated board exam results and the official medical college admission aggregate (83%). MBBS marks are not represented as completed degree GPAs because the degree is actively in progress (fourth year, Session 2022–2027).
+              </p>
+            </div>
+            <div className="flex-shrink-0 p-6 rounded-2xl bg-[#FAF9F5] border border-[#BD903C]/40 text-center font-mono min-w-[190px]">
+              <span className="block text-4xl sm:text-5xl font-black text-[#BD903C] tracking-tight font-editorial">83%</span>
+              <span className="text-[11px] text-[#5A6172] uppercase tracking-wider block mt-1 font-semibold">Admission Aggregate</span>
+            </div>
           </div>
         </div>
 
         {/* Chronological Timeline Section */}
-        <div className="space-y-8">
-          <div className="flex items-center justify-between">
+        <div className="space-y-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[#E2DED2]">
             <div>
-              <SectionEyebrow number="T.01" label="CHRONOLOGICAL MILESTONES" />
-              <h2 className="text-3xl font-bold tracking-tight text-foreground mt-2">
+              <SectionEyebrow number="E.01" label="CHRONOLOGICAL MILESTONES" variant="dark" />
+              <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#12141A] mt-2">
                 Three Pillars of Study
               </h2>
             </div>
-            <span className="hidden sm:inline-block font-mono text-xs text-muted">
-              CHRONOLOGY 2018 &mdash; 2027
+            <span className="font-mono text-xs text-[#848A96] font-semibold">
+              ACADEMIC TRAJECTORY &bull; 2018 &mdash; 2027
             </span>
           </div>
 
           {/* Interactive Timeline Track */}
-          <div className="relative border-l-2 border-white/15 ml-4 sm:ml-8 pl-6 sm:pl-12 space-y-12">
+          <div className="relative border-l-2 border-[#E2DED2] ml-4 sm:ml-8 pl-6 sm:pl-12 space-y-12">
             {PROFILE.education.timeline.map((entry, idx) => {
               const isCurrent = entry.period.includes("2022–2027");
 
@@ -67,57 +71,57 @@ export default function EducationPage() {
                 <div key={idx} className="relative group">
                   {/* Timeline Node Indicator */}
                   <div
-                    className={`absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+                    className={`absolute -left-[31px] sm:-left-[55px] top-6 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
                       isCurrent
-                        ? "bg-foreground border-white ring-4 ring-white/20 animate-pulse"
-                        : "bg-surface border-metallic group-hover:bg-metallic group-hover:border-foreground"
+                        ? "bg-[#BD903C] border-white ring-4 ring-[#BD903C]/30 animate-pulse"
+                        : "bg-white border-[#848A96] group-hover:bg-[#BD903C] group-hover:border-[#BD903C]"
                     }`}
                   />
 
                   {/* Card Container */}
                   <div
-                    className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 ${
+                    className={`rounded-3xl p-7 sm:p-10 transition-all duration-300 border ${
                       isCurrent
-                        ? "bg-surface border-white/20 shadow-2xl shadow-black/60"
-                        : "bg-surface/50 border-white/10 hover:border-metallic/40 hover:bg-surface/80"
+                        ? "bg-white border-[#BD903C] shadow-[0_12px_36px_rgba(0,0,0,0.06)] ring-1 ring-[#BD903C]/20"
+                        : "bg-white border-[#E2DED2] hover:border-[#BD903C] shadow-sm"
                     }`}
                   >
-                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10">
-                      <div className="space-y-1.5">
-                        <div className="flex items-center gap-3">
+                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#E2DED2]">
+                      <div className="space-y-2">
+                        <div className="flex flex-wrap items-center gap-3">
                           <span
-                            className={`font-mono text-xs px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
+                            className={`font-mono text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold ${
                               isCurrent
-                                ? "bg-white/15 text-foreground border border-white/20 font-semibold"
-                                : "bg-white/5 text-muted border border-white/10"
+                                ? "bg-[#FAF9F5] text-[#BD903C] border border-[#BD903C]/40"
+                                : "bg-[#F5F3EB] text-[#5A6172] border border-[#E2DED2]"
                             }`}
                           >
                             {entry.badge}
                           </span>
-                          <span className="font-mono text-xs text-metallic">
+                          <span className="font-mono text-xs text-[#848A96] font-semibold">
                             {entry.period}
                           </span>
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                        <h3 className="font-editorial text-2xl sm:text-3xl font-semibold tracking-tight text-[#12141A]">
                           {entry.degree}
                         </h3>
-                        <p className="text-sm font-medium text-muted flex items-center gap-2">
-                          <GraduationCap className="w-4 h-4 text-metallic flex-shrink-0" />
+                        <p className="text-sm font-medium text-[#5A6172] flex items-center gap-2">
+                          <GraduationCap className="w-4 h-4 text-[#BD903C] flex-shrink-0" />
                           <span>{entry.institution}</span>
                         </p>
                       </div>
 
                       {/* Score Highlight Box */}
-                      <div className="flex-shrink-0 flex items-center gap-4 p-4 rounded-xl bg-background/80 border border-white/10">
+                      <div className="flex-shrink-0 flex items-center gap-4 p-4 rounded-2xl bg-[#FAF9F5] border border-[#E2DED2]">
                         <div className="text-right">
-                          <span className="block text-3xl font-black text-foreground tracking-tight">
+                          <span className="block text-3xl sm:text-4xl font-black text-[#12141A] tracking-tight font-editorial">
                             {entry.score}
                           </span>
-                          <span className="block font-mono text-[10px] text-metallic uppercase tracking-wider">
+                          <span className="block font-mono text-[10px] text-[#5A6172] uppercase tracking-wider font-semibold">
                             {entry.scoreLabel}
                           </span>
                         </div>
-                        <div className="p-2 rounded-lg bg-white/5 text-metallic">
+                        <div className="p-2.5 rounded-xl bg-white border border-[#E2DED2] text-[#BD903C]">
                           {isCurrent ? (
                             <Clock className="w-5 h-5 animate-pulse" />
                           ) : (
@@ -127,7 +131,7 @@ export default function EducationPage() {
                       </div>
                     </div>
 
-                    <p className="mt-5 text-sm sm:text-base text-muted/90 leading-relaxed max-w-3xl">
+                    <p className="mt-5 text-sm sm:text-base text-[#2C313E] leading-relaxed max-w-3xl font-sans">
                       {entry.details}
                     </p>
                   </div>
@@ -138,70 +142,74 @@ export default function EducationPage() {
         </div>
 
         {/* Editorial Paper Moment: Academic Discipline & Study Philosophy */}
-        <div className="editorial-paper rounded-3xl p-8 sm:p-12 lg:p-16 space-y-6 shadow-2xl">
-          <SectionEyebrow number="E.02" label="PHILOSOPHY OF LEARNING" variant="dark" />
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink">
+        <div className="rounded-3xl bg-[#F5F3EB] p-8 sm:p-12 lg:p-16 space-y-6 border border-[#E2DED2] shadow-sm">
+          <SectionEyebrow number="E.02" label="PHILOSOPHY OF SCIENTIFIC RIGOR" variant="dark" />
+          <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#12141A]">
             Precision, Rigor, and Scientific Depth
           </h2>
-          <p className="text-base sm:text-lg text-ink/85 leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg text-[#2C313E] leading-relaxed max-w-3xl font-sans">
             Undergraduate medical training requires not only retention of vast anatomical and physiological taxonomies, but also the cultivation of analytical reasoning under pressure. From Taleem-ul-Islam School and Punjab College to Rai Medical College, this trajectory reflects an unbroken commitment to scientific excellence and personal integrity.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t paper-border">
-            <div className="space-y-1">
-              <span className="font-mono text-xs uppercase tracking-wider text-ink/60">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-[#E2DED2]">
+            <div className="space-y-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#BD903C] font-bold block">
                 Foundational Science
               </span>
-              <p className="font-semibold text-ink text-sm">
+              <p className="font-bold text-[#12141A] text-lg font-editorial">
                 Biology, Chemistry, Physics
               </p>
-              <p className="text-xs text-ink/70">
+              <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed">
                 Graduated with 88% matriculation board standing.
               </p>
             </div>
-            <div className="space-y-1">
-              <span className="font-mono text-xs uppercase tracking-wider text-ink/60">
+            <div className="space-y-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#BD903C] font-bold block">
                 Pre-Medical Rigor
               </span>
-              <p className="font-semibold text-ink text-sm">
+              <p className="font-bold text-[#12141A] text-lg font-editorial">
                 Punjab College Pre-Med
               </p>
-              <p className="text-xs text-ink/70">
+              <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed">
                 Completed with 94% higher secondary distinction.
               </p>
             </div>
-            <div className="space-y-1">
-              <span className="font-mono text-xs uppercase tracking-wider text-ink/60">
+            <div className="space-y-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#BD903C] font-bold block">
                 Clinical Transition
               </span>
-              <p className="font-semibold text-ink text-sm">
+              <p className="font-bold text-[#12141A] text-lg font-editorial">
                 Rai Medical College
               </p>
-              <p className="text-xs text-ink/70">
-                83% admission aggregate, now actively in 4th year rotations.
+              <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed">
+                83% admission aggregate, now actively in 4th year clinical rotations.
               </p>
             </div>
           </div>
         </div>
 
         {/* Next Route Navigation */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="pt-10 border-t border-[#E2DED2] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span className="font-mono text-xs text-muted uppercase tracking-widest block">
+            <span className="font-mono text-[10px] text-[#BD903C] uppercase tracking-widest block font-bold">
               NEXT SECTION
             </span>
-            <span className="text-base font-semibold text-foreground">
+            <span className="text-base font-semibold text-[#12141A]">
               Clinical Experience: FGPC Hospital Surgical Internship
             </span>
           </div>
           <Link
             href="/clinical-experience"
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold tracking-wider bg-foreground text-background hover:bg-white transition-all duration-300"
+            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full text-xs font-bold tracking-widest uppercase bg-[#12141A] text-white hover:bg-[#BD903C] hover:text-[#12141A] transition-all duration-300 shadow-md"
           >
             <span>VIEW CLINICAL EXPERIENCE</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
+      </div>
+
+      <div className="pt-16">
+        <CompactCTA />
       </div>
     </div>
   );

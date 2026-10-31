@@ -1,9 +1,10 @@
 export default function robots() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dr-ebbad-profile.vercel.app";
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ebbadnazir.com/sitemap.xml",
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

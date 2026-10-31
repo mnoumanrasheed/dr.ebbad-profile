@@ -51,9 +51,9 @@ export const PROFILE = {
       detail: "Internship experience at FGPC, Islamabad",
     },
     {
-      label: "Community Health",
-      title: "EPI Awareness Campaign",
-      detail: "Participant in immunization-awareness outreach",
+      label: "Academic Merit",
+      title: "83% Aggregate",
+      detail: "Verified medical admission standing",
     },
     {
       label: "Career Direction",
@@ -279,7 +279,6 @@ export const PROFILE = {
     { href: "/about", label: "About" },
     { href: "/education", label: "Education" },
     { href: "/clinical-experience", label: "Clinical Experience" },
-    { href: "/public-health", label: "Public Health" },
     { href: "/interests", label: "Interests & Vision" },
     { href: "/contact", label: "Contact" },
   ],

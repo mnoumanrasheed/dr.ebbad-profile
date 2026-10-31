@@ -1,122 +1,125 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import Logo from "../brand/Logo";
+import StatusTicker from "./StatusTicker";
 import { PROFILE } from "@/content/profile";
 
 export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="border-t border-white/10 bg-surface/90 text-foreground pt-16 pb-12 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
+    <footer className="bg-[#08090C] text-[#F4F3EF] border-t border-[#E2C98E]/25 relative overflow-hidden">
+      {/* 1. Live Ambient Status Ticker (Dark Obsidian Theme) */}
+      <StatusTicker />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
-          {/* Column 1: Identity & Signature */}
-          <div className="lg:col-span-5 space-y-4">
-            <Logo size="default" />
-            <p className="text-sm text-muted max-w-md leading-relaxed">
-              {PROFILE.heroIntro}
-            </p>
-            <div className="pt-2 flex items-center gap-3">
-              <span className="font-mono text-xs uppercase px-2 py-1 rounded bg-white/5 border border-white/10 text-metallic">
-                {PROFILE.session} MBBS
-              </span>
-              <span className="font-mono text-xs uppercase px-2 py-1 rounded bg-white/5 border border-white/10 text-metallic">
-                {PROFILE.currentYear}
+      {/* 2. Bespoke Luxury Black Colophon */}
+      <div className="relative py-12 lg:py-16 px-6 lg:px-12 bg-[radial-gradient(circle_at_15%_10%,rgba(226,201,142,0.10),transparent_28rem),linear-gradient(135deg,#111319_0%,#08090C_55%,#0B0D12_100%)]">
+        {/* Subtle champagne radial aura in background */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-28 bg-[#E2C98E]/[0.03] blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="max-w-7xl mx-auto space-y-8 relative z-10">
+          {/* Main Top Row: Brand & Concise Navigation */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_.9fr] gap-8 rounded-[2rem] border border-[#E2C98E]/20 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.012))] p-7 sm:p-9 lg:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.30)]">
+            <div className="space-y-4 max-w-lg">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-[#E2C98E]" />
+                <span className="font-mono text-[10px] tracking-[0.22em] text-[#E2C98E] uppercase">Clinical Profile</span>
+              </div>
+              <Logo size="large" variant="light" />
+              <p className="text-sm text-[#9AA0AC] font-sans leading-relaxed">
+                Fourth-year MBBS student – Rai Medical College, Sargodha.
+              </p>
+              <div className="flex items-center gap-2 font-mono text-[11px] text-[#E2C98E]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E2C98E] animate-pulse" />
+                <span>MBBS Session {PROFILE.session} &bull; {PROFILE.college}</span>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-[#E2C98E] px-4 py-2.5 text-[10px] font-bold tracking-[0.16em] text-[#12141A] uppercase hover:bg-white transition-colors"
+              >
+                Start a conversation <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Quick Navigation Links */}
+            <nav aria-label="Footer Navigation" className="rounded-2xl border border-white/[0.08] bg-black/20 p-6 sm:p-7">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-[#E2C98E] uppercase mb-5">Explore the portfolio</p>
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-7 gap-y-3 text-xs font-semibold tracking-wider font-sans">
+              {PROFILE.routes.map((route) => (
+                <Link
+                  key={route.href}
+                  href={route.href}
+                  className="text-white/60 hover:text-[#F3D98C] transition-colors py-1.5 inline-flex items-center gap-1 group"
+                >
+                  <span>{route.label}</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#F3D98C] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              ))}
+              </div>
+            </nav>
+          </div>
+
+          {/* Middle Row: Direct Channels in Dark Glass Badges */}
+          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-5 rounded-2xl border border-white/[0.08] bg-black/20 px-5 py-4">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+              <a
+                href={`mailto:${PROFILE.contact.email}`}
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E2C98E]/50 hover:bg-white/[0.08] text-[#F4F3EF] transition-all"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#E2C98E]" />
+                <span className="font-sans font-medium">{PROFILE.contact.email}</span>
+              </a>
+
+              <a
+                href={`tel:${PROFILE.contact.phone}`}
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E2C98E]/50 hover:bg-white/[0.08] text-[#F4F3EF] transition-all"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#E2C98E]" />
+                <span className="font-sans font-medium">{PROFILE.contact.phoneDisplay}</span>
+              </a>
+
+              <a
+                href={PROFILE.contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E2C98E]/50 hover:bg-white/[0.08] text-[#F4F3EF] transition-all"
+              >
+                <span className="text-[#E2C98E] font-bold">in</span>
+                <span className="font-sans font-medium">LinkedIn</span>
+                <ArrowUpRight className="w-3 h-3 text-[#9AA0AC]" />
+              </a>
+
+              <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.02] border border-white/[0.06] text-[#9AA0AC]">
+                <MapPin className="w-3.5 h-3.5 text-[#E2C98E]" />
+                <span className="font-sans text-xs">Sargodha, Pakistan</span>
               </span>
             </div>
-            <p className="font-editorial italic text-metallic/80 text-lg pt-1">
-              &ldquo;{PROFILE.signatureLine}&rdquo;
-            </p>
+
+            <a
+              href="#main-content"
+              aria-label="Back to top"
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase text-[#9AA0AC] hover:text-[#E2C98E] transition-colors py-1 group"
+            >
+              <span>BACK TO TOP</span>
+              <span className="w-7 h-7 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-[#E2C98E] group-hover:border-[#E2C98E] transition-colors">
+                <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
+              </span>
+            </a>
           </div>
 
-          {/* Column 2: Navigation Links */}
-          <div className="lg:col-span-3 space-y-3">
-            <p className="text-xs font-mono tracking-widest text-muted uppercase">
-              SECTIONS
+          {/* Bottom Row: Ethics Notice & Copyright */}
+          <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#848A96]">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#E2C98E]" />
+              <span>Verified undergraduate records &bull; Rai Medical College &bull; Surgery Dept. Intern (FGPC)</span>
+            </div>
+            <p>
+              &copy; {currentYear} Ebbad Nazir. All rights reserved.
             </p>
-            <ul className="space-y-2 text-sm">
-              {PROFILE.routes.map((route) => (
-                <li key={route.href}>
-                  <Link
-                    href={route.href}
-                    className="group inline-flex items-center gap-1.5 text-muted hover:text-foreground transition-colors"
-                  >
-                    <span>{route.label}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all text-metallic" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
-
-          {/* Column 3: Contact & Direct Inquiries */}
-          <div className="lg:col-span-4 space-y-3">
-            <p className="text-xs font-mono tracking-widest text-muted uppercase">
-              DIRECT CHANNELS
-            </p>
-            <ul className="space-y-3 text-sm font-mono">
-              <li>
-                <a
-                  href={`mailto:${PROFILE.contact.email}`}
-                  className="flex items-center gap-2 text-muted hover:text-foreground transition-colors"
-                >
-                  <Mail className="w-4 h-4 text-metallic flex-shrink-0" />
-                  <span className="truncate">{PROFILE.contact.email}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${PROFILE.contact.phone}`}
-                  className="flex items-center gap-2 text-muted hover:text-foreground transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-metallic flex-shrink-0" />
-                  <span>{PROFILE.contact.phoneDisplay}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={PROFILE.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-muted hover:text-foreground transition-colors"
-                >
-                  <ArrowUpRight className="w-4 h-4 text-metallic flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                  <span className="truncate">LinkedIn / ebbad-nazir-225316280</span>
-                </a>
-              </li>
-              <li className="flex items-start gap-2 text-muted">
-                <MapPin className="w-4 h-4 text-metallic flex-shrink-0 mt-0.5" />
-                <span className="font-sans text-xs leading-relaxed">
-                  {PROFILE.location.formatted}
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Ethical / Medical Integrity Disclaimer (Section 10 & 11) */}
-        <div className="py-8 text-[11px] leading-relaxed text-muted/80 border-b border-white/5 space-y-2">
-          <p>
-            <strong className="text-foreground/90 font-medium">Academic Transparency Notice:</strong>{" "}
-            This portfolio presents the verified undergraduate academic credentials and observational clinical internship exposure of Ebbad Nazir, a fourth-year medical student enrolled in the MBBS program (Session 2022–2027) at Rai Medical College, Sargodha, Pakistan.
-          </p>
-          <p className="text-muted/60">
-            Statements concerning surgery represent aspirational postgraduate career ambitions and academic interest, not current licensed medical practice, specialist status, or independent clinical authority. All dates and statistics adhere strictly to verified academic records.
-          </p>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted">
-          <p>
-            &copy; {currentYear} Ebbad Nazir. All rights reserved.
-          </p>
-          <p className="text-[11px] text-metallic/70">
-            Engineered with Precision &bull; Next.js &bull; Three.js
-          </p>
         </div>
       </div>
     </footer>

@@ -1,11 +1,11 @@
-import { Mail, Phone, MapPin, ArrowUpRight, Clock, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Clock, ShieldCheck, Stethoscope, Sparkles } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionEyebrow from "@/components/ui/SectionEyebrow";
 import ContactForm from "@/components/sections/ContactForm";
 import { PROFILE } from "@/content/profile";
 
 export const metadata = {
-  title: "Contact | Ebbad Nazir — Let's Connect",
+  title: "Contact | Ebbad Nazir — Professional Correspondence",
   description:
     "Direct contact channels for Ebbad Nazir, fourth-year MBBS student at Rai Medical College, Sargodha. Reach out via email, phone, or LinkedIn.",
 };
@@ -14,27 +14,28 @@ export default function ContactPage() {
   const c = PROFILE.contact;
 
   return (
-    <div className="bg-background text-foreground pb-24">
+    <div className="bg-[#FAF9F5] text-[#12141A] pb-28">
       {/* Page Hero */}
       <PageHero
         eyebrowNumber="06"
-        eyebrowLabel="GET IN TOUCH"
+        eyebrowLabel="PROFESSIONAL CORRESPONDENCE"
         title={c.heading}
         subtitle={c.subheading}
         breadcrumb={[{ label: "Contact" }]}
         bgImage="/images/hero-contact.jpg"
+        variant="light"
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-24 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Direct Channels & Information */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-2">
-              <SectionEyebrow number="C.01" label="AUTHENTIC CONTACT CHANNELS" />
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+            <div className="space-y-3">
+              <SectionEyebrow number="C.01" label="AUTHENTIC CONTACT CHANNELS" variant="dark" />
+              <h2 className="font-editorial text-3xl sm:text-4xl font-semibold tracking-tight text-[#12141A]">
                 Verified Communication Lines
               </h2>
-              <p className="text-sm text-muted">
+              <p className="text-sm sm:text-base text-[#5A6172] font-sans leading-relaxed">
                 Direct methods to reach Ebbad Nazir for academic, clinical, or public health conversations.
               </p>
             </div>
@@ -43,13 +44,13 @@ export default function ContactPage() {
               {c.channels.map((chan, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-surface/70 border border-white/10 hover:border-metallic/40 transition-all duration-300 space-y-1"
+                  className="rounded-2xl bg-white p-6 border border-[#E2DED2] shadow-sm hover:border-[#BD903C] hover:shadow-md transition-all duration-300 space-y-2 relative"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] text-metallic uppercase tracking-wider">
+                    <span className="font-mono text-xs text-[#BD903C] uppercase tracking-widest font-bold">
                       {chan.label}
                     </span>
-                    <span className="text-[10px] font-mono text-muted/60">
+                    <span className="text-[11px] font-mono text-[#848A96] font-semibold">
                       {chan.helper}
                     </span>
                   </div>
@@ -59,18 +60,18 @@ export default function ContactPage() {
                       href={chan.href}
                       target={chan.href.startsWith("http") ? "_blank" : undefined}
                       rel={chan.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="group inline-flex items-center gap-2 text-base font-semibold text-foreground hover:text-metallic transition-colors"
+                      className="group inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-[#12141A] hover:text-[#BD903C] transition-colors pt-1"
                     >
                       <span className="break-all">{chan.value}</span>
-                      <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-metallic" />
+                      <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#BD903C]" />
                     </a>
                   ) : (
-                    <div>
-                      <p className="text-base font-semibold text-foreground">
+                    <div className="pt-1">
+                      <p className="text-base sm:text-lg font-semibold text-[#12141A]">
                         {chan.value}
                       </p>
                       {chan.subtext && (
-                        <p className="text-xs text-muted font-mono">{chan.subtext}</p>
+                        <p className="text-xs text-[#5A6172] font-mono mt-0.5">{chan.subtext}</p>
                       )}
                     </div>
                   )}
@@ -78,18 +79,18 @@ export default function ContactPage() {
               ))}
             </div>
 
-            {/* Response Time & Privacy Assurance */}
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 text-xs text-muted font-mono">
-              <div className="flex items-center gap-2 text-metallic">
+            {/* Contact transparency & privacy assurance */}
+            <div className="p-7 rounded-2xl bg-[#F5F3EB] border border-[#E2DED2] space-y-3 text-xs sm:text-sm text-[#5A6172]">
+              <div className="flex items-center gap-2 text-[#BD903C] font-mono font-bold uppercase tracking-wider text-xs">
                 <Clock className="w-4 h-4" />
-                <span className="uppercase tracking-wider">Academic Availability</span>
+                <span>Contact Transparency</span>
               </div>
-              <p className="font-sans leading-relaxed text-muted/80">
-                As a fourth-year medical student undergoing daily hospital rotations and academic study, replies are usually returned within 24 to 48 hours.
+              <p className="font-sans leading-relaxed text-[#2C313E]">
+                This portfolio operates without tracking cookies or contact databases. Form submissions hand off securely to your own email client, ensuring absolute privacy.
               </p>
-              <div className="pt-2 border-t border-white/5 flex items-center gap-2 text-[11px] text-muted/60 font-sans">
-                <ShieldCheck className="w-3.5 h-3.5 text-metallic" />
-                <span>No private residential street addresses are stored or displayed.</span>
+              <div className="pt-2 border-t border-[#E2DED2] flex items-center gap-2 text-xs text-[#5A6172] font-sans">
+                <ShieldCheck className="w-4 h-4 text-[#BD903C]" />
+                <span>Regional privacy strictly preserved (city and district documented).</span>
               </div>
             </div>
           </div>

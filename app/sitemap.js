@@ -1,7 +1,7 @@
 import { PROFILE } from "@/content/profile";
 
 export default function sitemap() {
-  const baseUrl = "https://ebbadnazir.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dr-ebbad-profile.vercel.app";
   const currentDate = new Date().toISOString();
 
   return PROFILE.routes.map((route) => ({

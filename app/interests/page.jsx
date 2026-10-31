@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, Crosshair, HeartPulse, Brain, BookOpen, ShieldAlert, Sparkles, CheckCircle2, Milestone } from "lucide-react";
+import { ArrowRight, Crosshair, HeartPulse, Brain, BookOpen, ShieldAlert, Sparkles, CheckCircle2, Milestone, Stethoscope, Compass } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionEyebrow from "@/components/ui/SectionEyebrow";
+import CompactCTA from "@/components/sections/CompactCTA";
 import { PROFILE } from "@/content/profile";
 
 export const metadata = {
@@ -21,7 +22,7 @@ export default function InterestsPage() {
   const int = PROFILE.interests;
 
   return (
-    <div className="bg-background text-foreground pb-24">
+    <div className="bg-[#FAF9F5] text-[#12141A] pb-28">
       {/* Page Hero */}
       <PageHero
         eyebrowNumber="05"
@@ -30,54 +31,54 @@ export default function InterestsPage() {
         subtitle="A future dedicated to surgical precision, clinical diagnostic acumen, and compassionate patient care."
         breadcrumb={[{ label: "Interests & Vision" }]}
         bgImage="/images/hero-interests.jpg"
+        variant="light"
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-24 space-y-20">
         {/* Featured Specialty Ambition: SURGERY */}
-        <div className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-surface border border-white/20 shadow-2xl relative overflow-hidden">
-          {/* Ambient lighting highlight */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-white/[0.05] via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono text-foreground uppercase tracking-widest">
-              <Crosshair className="w-3.5 h-3.5 text-metallic animate-spin" />
+        <div className="rounded-3xl bg-white p-8 sm:p-12 lg:p-16 border border-[#E2DED2] shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
+          <div className="relative max-w-3xl space-y-6 z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF9F5] border border-[#BD903C]/40 text-xs font-mono font-bold text-[#BD903C] uppercase tracking-widest">
+              <Crosshair className="w-3.5 h-3.5 text-[#BD903C]" />
               <span>PRIMARY CAREER AMBITION</span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground">
+            <h2 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#12141A]">
               {int.featured.name}
             </h2>
 
-            <p className="font-editorial italic text-xl sm:text-2xl text-metallic">
+            <p className="font-editorial italic text-2xl sm:text-3xl text-[#BD903C]">
               &ldquo;{int.featured.tagline}&rdquo;
             </p>
 
-            <p className="text-base sm:text-lg text-muted/95 leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-[#2C313E] leading-relaxed font-sans">
               {int.featured.body}
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono text-metallic/80">
-              <span className="px-3 py-1 rounded-md bg-white/5 border border-white/10">
+            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono text-[#5A6172] font-semibold">
+              <span className="px-4 py-2 rounded-xl bg-[#FAF9F5] border border-[#E2DED2]">
                 Technical Precision
               </span>
-              <span className="px-3 py-1 rounded-md bg-white/5 border border-white/10">
+              <span className="px-4 py-2 rounded-xl bg-[#FAF9F5] border border-[#E2DED2]">
                 Anatomical Mastery
               </span>
-              <span className="px-3 py-1 rounded-md bg-white/5 border border-white/10">
-                Teamwork Under Pressure
+              <span className="px-4 py-2 rounded-xl bg-[#FAF9F5] border border-[#E2DED2]">
+                Composure Under Pressure
               </span>
             </div>
           </div>
         </div>
 
-        {/* Four Additional Interests (Demarcated as Learning Interests, not Specializations) */}
-        <div className="space-y-6">
-          <div className="space-y-1">
-            <SectionEyebrow number="I.01" label="UNDERGRADUATE FOCUS AREAS" />
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-              Foundations of Medical Curiosity
-            </h2>
-            <p className="text-sm text-muted max-w-2xl">
+        {/* Four Additional Interests */}
+        <div className="space-y-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[#E2DED2]">
+            <div className="space-y-2">
+              <SectionEyebrow number="I.01" label="UNDERGRADUATE FOCUS DOMAINS" variant="dark" />
+              <h2 className="font-editorial text-3xl sm:text-4xl font-semibold tracking-tight text-[#12141A]">
+                Foundations of Medical Curiosity
+              </h2>
+            </div>
+            <p className="text-sm text-[#5A6172] max-w-md font-sans leading-relaxed">
               Key domains of ongoing undergraduate study supporting clinical readiness.
             </p>
           </div>
@@ -88,18 +89,20 @@ export default function InterestsPage() {
               return (
                 <div
                   key={idx}
-                  className="p-6 sm:p-8 rounded-2xl bg-surface/60 border border-white/10 hover:border-metallic/40 hover:bg-surface transition-all duration-300 space-y-3"
+                  className="rounded-3xl bg-white p-8 sm:p-9 border border-[#E2DED2] shadow-sm hover:border-[#BD903C] transition-all duration-300 space-y-4"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-metallic">
+                    <div className="w-11 h-11 rounded-xl bg-[#FAF9F5] border border-[#E2DED2] flex items-center justify-center text-[#BD903C]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="font-mono text-xs text-metallic/50">0{idx + 1}</span>
+                    <span className="font-mono text-xs text-[#848A96] font-bold">0{idx + 1}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">
+
+                  <h3 className="font-editorial text-2xl font-bold text-[#12141A]">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed">
+
+                  <p className="text-sm text-[#5A6172] leading-relaxed font-sans">
                     {item.description}
                   </p>
                 </div>
@@ -109,48 +112,48 @@ export default function InterestsPage() {
         </div>
 
         {/* Aspirational Career Path: Step-by-Step Trajectory */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-surface/40 border border-white/10 space-y-10">
-          <div className="space-y-2">
-            <SectionEyebrow number="I.02" label="CAREER TRAJECTORY & VISION" />
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+        <div className="rounded-3xl bg-[#F5F3EB] p-8 sm:p-12 lg:p-14 space-y-10 border border-[#E2DED2] shadow-sm relative">
+          <div className="space-y-3 relative z-10">
+            <SectionEyebrow number="I.02" label="CAREER TRAJECTORY & VISION" variant="dark" />
+            <h2 className="font-editorial text-3xl sm:text-4xl font-semibold tracking-tight text-[#12141A]">
               The Path Toward Surgical Practice
             </h2>
-            <blockquote className="text-base sm:text-lg text-foreground/90 font-editorial italic max-w-3xl leading-relaxed pt-2">
+            <blockquote className="text-base sm:text-xl text-[#2C313E] font-editorial italic max-w-3xl leading-relaxed pt-2 border-l-2 border-[#BD903C] pl-6">
               &ldquo;{int.careerVision.statement}&rdquo;
             </blockquote>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
             {int.careerVision.aspirationalPath.map((step, idx) => {
               const isCurrent = step.status.includes("In Progress");
 
               return (
                 <div
                   key={idx}
-                  className={`p-6 rounded-2xl border transition-all ${
+                  className={`p-7 rounded-2xl border transition-all duration-300 space-y-4 ${
                     isCurrent
-                      ? "bg-surface border-white/25 shadow-xl shadow-black/40 ring-1 ring-white/10"
-                      : "bg-surface/30 border-white/10 hover:border-white/20"
+                      ? "bg-white border-[#BD903C] shadow-md ring-1 ring-[#BD903C]/30"
+                      : "bg-[#FAF9F5] border-[#E2DED2] hover:border-[#BD903C]"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xl font-bold text-metallic">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xl font-bold text-[#BD903C]">
                       {step.step}
                     </span>
                     <span
-                      className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded-full ${
+                      className={`text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full font-bold ${
                         isCurrent
-                          ? "bg-emerald-400/10 text-emerald-300 border border-emerald-400/20"
-                          : "bg-white/5 text-muted border border-white/10"
+                          ? "bg-[#FAF9F5] text-[#BD903C] border border-[#BD903C]/40"
+                          : "bg-white text-[#848A96] border border-[#E2DED2]"
                       }`}
                     >
                       {step.status}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-foreground mb-2">
+                  <h3 className="text-xl font-bold text-[#12141A] font-editorial">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-muted leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed font-sans">
                     {step.desc}
                   </p>
                 </div>
@@ -160,23 +163,27 @@ export default function InterestsPage() {
         </div>
 
         {/* Next Route Navigation */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="pt-10 border-t border-[#E2DED2] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span className="font-mono text-xs text-muted uppercase tracking-widest block">
+            <span className="font-mono text-[10px] text-[#BD903C] uppercase tracking-widest block font-bold">
               FINAL SECTION
             </span>
-            <span className="text-base font-semibold text-foreground">
+            <span className="text-base font-semibold text-[#12141A]">
               Contact & Professional Inquiries
             </span>
           </div>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold tracking-wider bg-foreground text-background hover:bg-white transition-all duration-300"
+            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full text-xs font-bold tracking-widest uppercase bg-[#12141A] text-white hover:bg-[#BD903C] hover:text-[#12141A] transition-all duration-300 shadow-md"
           >
             <span>CONNECT WITH EBBAD</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
+      </div>
+
+      <div className="pt-16">
+        <CompactCTA />
       </div>
     </div>
   );
