@@ -86,22 +86,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#15171C] px-6 py-20 text-[#F7F3EA] sm:py-24 lg:px-12 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#E2C98E]">Personal foundation</p>
-            <h2 className="mt-4 font-editorial text-4xl font-semibold leading-[.95] tracking-[-.04em] sm:text-5xl">{PROFILE.about.heading}</h2>
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/65 sm:text-base">{PROFILE.about.body[0]}</p>
-            <Link href="/about" className="group mt-8 inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#E2C98E]">
-              Read the personal profile <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+      <section className="home-foundation">
+        <div className="home-foundation__aura" aria-hidden="true" />
+        <div className="home-foundation__shell">
+          <div className="home-foundation__intro">
+            <p className="home-foundation__eyebrow"><span aria-hidden="true" /> Personal foundation</p>
+            <h2>{PROFILE.about.heading}</h2>
+            <p>{PROFILE.about.body[0]}</p>
+            <Link href="/about" className="home-foundation__link">
+              Read the personal profile <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <div className="grid gap-px self-start overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:col-span-7">
+
+          <div className="home-foundation__values">
+            <div className="home-foundation__axis" aria-hidden="true"><span /></div>
             {PROFILE.about.values.map((value, index) => (
-              <article key={value.title} className="min-h-48 bg-[#15171C] p-6 sm:p-7">
-                <span className="font-mono text-[10px] font-bold tracking-[0.16em] text-[#E2C98E]">0{index + 1}</span>
-                <h3 className="mt-7 font-editorial text-2xl font-semibold">{value.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/55">{value.description}</p>
+              <article key={value.title} className={`home-foundation__value home-foundation__value--${index + 1}`}>
+                <div className="home-foundation__value-meta"><span>0{index + 1}</span><i aria-hidden="true" /></div>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
               </article>
             ))}
           </div>

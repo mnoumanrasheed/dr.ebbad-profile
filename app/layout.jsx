@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MedicalLoader from "@/components/ui/MedicalLoader";
+import PortfolioAssistant from "@/components/ui/PortfolioAssistant";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dr-ebbad-profile.vercel.app";
 
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <PortfolioAssistant />
       </body>
     </html>
   );

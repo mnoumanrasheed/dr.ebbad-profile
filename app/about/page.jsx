@@ -94,31 +94,31 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden rounded-[2rem] border border-[#262B35] bg-[#12151C] px-6 py-9 text-[#F8F7F4] shadow-[0_20px_50px_rgba(18,20,26,0.16)] sm:px-10 sm:py-12 lg:px-14 lg:py-14">
-          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#BD903C]/10 blur-3xl" aria-hidden="true" />
-          <div className="relative flex flex-col gap-8 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
+        <section className="about-values">
+          <div className="about-values__aura" aria-hidden="true" />
+          <div className="about-values__heading">
             <div>
-              <SectionEyebrow number="A.02" label="CORE ASPIRATIONAL VALUES" variant="champagne" />
-              <h3 className="mt-4 font-editorial text-3xl sm:text-4xl font-semibold tracking-tight">A clinical compass.</h3>
+              <SectionEyebrow number="A.02" label="CLINICAL COMPASS" variant="dark" />
+              <h3>A way of learning.<br /><em>A way of caring.</em></h3>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-white/60">
-              Four principles that shape the way learning, clinical observation, and patient care are approached.
+            <p>
+              Four principles that quietly guide study, clinical observation, and every future patient interaction.
             </p>
           </div>
 
-          <div className="relative grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4 mt-8">
+          <div className="about-values__path" aria-hidden="true"><span /></div>
+          <div className="about-values__list">
             {PROFILE.about.values.map((value, index) => {
               const Icon = VALUE_ICONS[value.title] || Sparkles;
               return (
-                <article key={value.title} className="group min-h-56 bg-[#12151C] p-6 transition-colors duration-300 hover:bg-white/[0.05] sm:p-7">
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#E2C98E]/25 bg-[#E2C98E]/10 text-[#E2C98E]">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="font-mono text-[11px] font-bold text-white/35">0{index + 1}</span>
+                <article key={value.title} className={`about-value-card about-value-card--${index + 1}`}>
+                  <div className="about-value-card__top">
+                    <span className="about-value-card__icon"><Icon className="h-[18px] w-[18px]" /></span>
+                    <span className="about-value-card__number">0{index + 1}</span>
                   </div>
-                  <h4 className="mt-8 font-editorial text-2xl font-semibold text-[#F8F4EA]">{value.title}</h4>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">{value.description}</p>
+                  <h4>{value.title}</h4>
+                  <p>{value.description}</p>
+                  <span className="about-value-card__marker" aria-hidden="true" />
                 </article>
               );
             })}

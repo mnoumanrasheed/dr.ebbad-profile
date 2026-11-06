@@ -64,7 +64,6 @@ export default function MedicalLoader() {
           </div>
           <div className="surgical-loader__monitor-body">
             <div className="surgical-loader__crosshair"><span /><span /></div>
-            <div className="surgical-loader__mark"><img src="/brand/ebbad-nazir-mark-transparent.png" alt="" /></div>
             <svg className="surgical-loader__wave" viewBox="0 0 500 150" preserveAspectRatio="none">
               <path d="M0 83H132L150 83L162 67L175 102L194 23L215 127L235 83H500" />
             </svg>
