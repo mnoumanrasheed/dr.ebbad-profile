@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MedicalLoader from "@/components/ui/MedicalLoader";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dr-ebbad-profile.vercel.app";
 
@@ -23,11 +24,10 @@ export const metadata = {
   creator: "Ebbad Nazir",
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/favicon.ico" },
+      { url: "/brand/ebbad-nazir-mark-transparent.png", type: "image/png" },
     ],
-    shortcut: "/favicon.png",
-    apple: "/apple-icon.png",
+    shortcut: "/brand/ebbad-nazir-mark-transparent.png",
+    apple: "/brand/ebbad-nazir-mark-transparent.png",
   },
   openGraph: {
     title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
@@ -37,10 +37,10 @@ export const metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/profile.png",
+        url: "/opengraph-image",
         width: 1200,
-        height: 1200,
-        alt: "Ebbad Nazir - Fourth-Year MBBS Student",
+        height: 630,
+        alt: "Ebbad Nazir — MBBS Student and Aspiring Surgeon",
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata = {
     title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
     description:
       "Fourth-year MBBS student at Rai Medical College, Sargodha. The Art of Precision.",
-    images: ["/images/profile.png"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -57,6 +57,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="font-sans antialiased bg-[#FAF9F5] text-[#12141A] selection:bg-[#E2C98E]/40 selection:text-[#12141A]">
+        <MedicalLoader />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
         <main id="main-content" className="min-h-screen">

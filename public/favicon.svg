@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- Minimalist EN and precision pulse -->
-  <path d="M8 8V24M8 8H14M8 16H13M8 24H14" stroke="#FFF1B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M17 24V8L24 24V8" stroke="#E8C66B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M5 20H11L13 18L15 22L17 17L19 20H27" stroke="#E8C66B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="#F8F4EA"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="17.25" stroke="#C7953E" stroke-opacity=".55" stroke-width="1.5"/>
+  <path d="M18 17v30m0-30h16m-16 15h12m-12 15h16" stroke="#15171C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 47V17l11 30V17" stroke="#B7832C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 39h12l3-4 4 7 4-10 4 7h13" stroke="#B7832C" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

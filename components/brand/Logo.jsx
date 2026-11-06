@@ -26,7 +26,7 @@ export default function Logo({ variant = "light", size = "default", className = 
     >
       <span className={`relative inline-flex items-center justify-center ${textColor}`}>
         <Image
-          src="/brand/ebbad-nazir-mark.png"
+          src="/brand/ebbad-nazir-mark-transparent.png"
           alt=""
           width={64}
           height={64}

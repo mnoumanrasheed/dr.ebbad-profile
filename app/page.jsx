@@ -1,279 +1,169 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Award, BookOpen, Building2, Calendar, Compass, HeartPulse, Landmark, MapPin, ShieldCheck, Sparkles, Stethoscope, Users, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  GraduationCap,
+  HeartPulse,
+  MapPin,
+  Stethoscope,
+  Target,
+} from "lucide-react";
 import HomeHero from "@/components/sections/HomeHero";
-import AcademicMilestones from "@/components/sections/AcademicMilestones";
 import CompactCTA from "@/components/sections/CompactCTA";
-import SectionEyebrow from "@/components/ui/SectionEyebrow";
 import { PROFILE } from "@/content/profile";
 
 export const metadata = {
-  title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon — Medical Portfolio",
+  title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon - Medical Portfolio",
   description:
-    "Explore the professional medical portfolio of Ebbad Nazir, fourth-year MBBS student at Rai Medical College, Sargodha (2022–2027), with surgical internship experience at FGPC Islamabad.",
+    "A medical portfolio documenting Ebbad Nazir's academic record, clinical learning, and developing interest in surgery.",
 };
 
+const overviewIcons = [GraduationCap, Target, Stethoscope, HeartPulse];
+
 export default function HomePage() {
+  const clinical = PROFILE.clinicalExperience;
+  const interests = PROFILE.interests;
+
   return (
-    <div className="bg-[#FAF9F5] text-[#12141A]">
-      {/* 1. Reference Hero (Untouched) */}
+    <div className="bg-[#F7F5F0] text-[#15161A]">
       <HomeHero />
 
-      {/* 2. Academic Distinction & Verified Standing (Redesigned with Live Animations) */}
-      <AcademicMilestones />
-
-      {/* 3. The Surgeon's Calling: Editorial Spread (Clean Warm Ivory) */}
-      <section className="relative bg-[#FAF9F5] py-24 lg:py-32 border-b border-[#E2DED2]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left: Editorial Statement */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="space-y-4">
-                <SectionEyebrow number="02" label="CLINICAL PHILOSOPHY" variant="dark" />
-                <h2 className="font-editorial text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#12141A] leading-[1.08]">
-                  Precision in Knowledge.<br />
-                  <span className="italic font-normal text-[#BD903C]">Compassion in Care.</span>
-                </h2>
+      <section className="border-b border-[#282A2E] bg-[#111317] text-[#F7F3EA]" aria-label="Portfolio overview">
+        <div className="mx-auto grid max-w-7xl divide-y divide-white/10 px-6 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4 lg:px-12">
+          {PROFILE.editorialHighlights.map((item, index) => {
+            const Icon = overviewIcons[index];
+            return (
+              <div key={item.label} className="group min-h-40 px-0 py-7 sm:px-6 lg:px-7">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#E2C98E]">{item.label}</span>
+                  <Icon className="h-4 w-4 text-white/35 transition-colors group-hover:text-[#E2C98E]" />
+                </div>
+                <p className="mt-7 font-editorial text-2xl font-semibold leading-tight text-white">{item.value}</p>
+                <p className="mt-2 text-xs leading-relaxed text-white/50">{item.desc}</p>
               </div>
+            );
+          })}
+        </div>
+      </section>
 
-              <div className="space-y-5 text-base sm:text-lg text-[#2C313E] font-sans leading-relaxed border-l-2 border-[#BD903C] pl-6">
-                <p>
-                  As a fourth-year MBBS student at Rai Medical College, medical learning is an active pursuit of scientific excellence, diagnostic reasoning, and patient dignity.
-                </p>
-                <p>
-                  Surgery demands the ultimate harmony of anatomic knowledge, manual composure, and humble collaboration. Every clinical posting and case study reinforces this lifelong dedication.
-                </p>
-              </div>
+      <section id="portfolio-record" className="scroll-mt-24 border-b border-[#DED9CF] px-6 py-20 sm:py-24 lg:px-12 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <header className="grid gap-6 border-b border-[#DCD6CA] pb-9 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#A4772D]">The portfolio record</p>
+              <h2 className="mt-4 max-w-3xl font-editorial text-4xl font-semibold leading-[.94] tracking-[-.045em] sm:text-5xl lg:text-6xl">
+                A foundation built through study, observation, and care.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-relaxed text-[#636772] lg:col-span-4 lg:col-start-9">
+              The homepage now carries the key facts from every chapter, arranged as one clear medical narrative rather than a collection of repeated links.
+            </p>
+          </header>
 
-              <div className="pt-2">
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-3 px-7 py-4 rounded-full text-xs font-bold tracking-widest uppercase bg-[#12141A] text-white hover:bg-[#BD903C] hover:text-[#12141A] transition-all duration-300 shadow-md"
-                >
-                  <span>Read Personal Journey & Values</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          <div className="mt-8 grid gap-5 lg:grid-cols-12">
+            <article className="overflow-hidden rounded-[1.6rem] border border-[#DCD6CA] bg-[#FCFBF8] lg:col-span-8">
+              <div className="flex flex-col gap-5 border-b border-[#DCD6CA] p-7 sm:p-9 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#A4772D]"><GraduationCap className="h-4 w-4" /> Education</span>
+                  <h3 className="mt-4 font-editorial text-3xl font-semibold tracking-tight sm:text-4xl">{PROFILE.education.heading}</h3>
+                </div>
+                <Link href="/education" className="group inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.13em] text-[#966A24]">
+                  Full academic record <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
               </div>
-            </div>
-
-            {/* Right: Four Medical Tenets Cards */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {[
-                  {
-                    num: "01",
-                    title: "Compassion",
-                    detail: "Honoring patient dignity, active listening, and clinical empathy as the heartbeat of healthcare.",
-                    icon: HeartPulse,
-                  },
-                  {
-                    num: "02",
-                    title: "Integrity",
-                    detail: "Upholding uncompromising ethical standards, truthfulness, and professional responsibility in every setting.",
-                    icon: ShieldCheck,
-                  },
-                  {
-                    num: "03",
-                    title: "Discipline",
-                    detail: "Cultivating meticulous study habits, surgical precision, and unwavering attention to clinical protocols.",
-                    icon: Compass,
-                  },
-                  {
-                    num: "04",
-                    title: "Continuous Learning",
-                    detail: "Treating medicine as an evolving science through relentless curiosity and evidence-based study.",
-                    icon: BookOpen,
-                  },
-                ].map((tenet, idx) => {
-                  const Icon = tenet.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="p-7 rounded-3xl bg-white border border-[#E2DED2] shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:border-[#BD903C] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 space-y-3"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] text-[#BD903C] border border-[#E2DED2] flex items-center justify-center">
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <span className="font-mono text-xs font-bold text-[#848A96]">0{idx + 1}</span>
-                      </div>
-                      <h3 className="font-editorial text-2xl font-bold text-[#12141A]">
-                        {tenet.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed font-sans">
-                        {tenet.detail}
-                      </p>
+              <div className="divide-y divide-[#E5E0D5]">
+                {PROFILE.education.timeline.map((entry, index) => (
+                  <div key={entry.degree} className="grid gap-4 px-7 py-6 sm:grid-cols-[3.6rem_1fr_auto] sm:items-center sm:px-9">
+                    <span className="font-mono text-xs font-bold text-[#B98A38]">0{index + 1}</span>
+                    <div>
+                      <p className="font-editorial text-xl font-semibold text-[#18191D]">{entry.degree}</p>
+                      <p className="mt-1 text-sm text-[#666A73]">{entry.institution}</p>
                     </div>
-                  );
-                })}
+                    <div className="sm:text-right">
+                      <p className="font-editorial text-2xl font-semibold text-[#18191D]">{entry.score}</p>
+                      <p className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.12em] text-[#9A722E]">{entry.badge}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
+            </article>
 
-              {/* Institution Seal Badge */}
-              <div className="p-6 rounded-3xl bg-[#F5F3EB] border border-[#E2DED2] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-full bg-white border border-[#E2DED2] flex items-center justify-center text-[#BD903C] shadow-sm">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[#12141A] block font-sans font-bold text-sm">
-                      {PROFILE.college}
-                    </span>
-                    <span className="text-xs text-[#5A6172] font-mono">
-                      Sargodha, Pakistan &bull; Session {PROFILE.session}
-                    </span>
-                  </div>
-                </div>
-                <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase px-3.5 py-1.5 rounded-full bg-white text-[#BD903C] border border-[#E2DED2] font-bold self-start sm:self-auto shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#BD903C] animate-pulse" />
-                  Fourth Year (MBBS)
-                </span>
+            <article className="relative overflow-hidden rounded-[1.6rem] bg-[#15171C] p-7 text-[#F7F3EA] sm:p-9 lg:col-span-4">
+              <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-[#E2C98E]/20" aria-hidden="true" />
+              <div className="absolute -right-3 -top-3 h-32 w-32 rounded-full border border-[#E2C98E]/15" aria-hidden="true" />
+              <span className="relative inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#E2C98E]"><Stethoscope className="h-4 w-4" /> Clinical learning</span>
+              <h3 className="relative mt-8 font-editorial text-3xl font-semibold leading-tight">{clinical.department}</h3>
+              <p className="relative mt-3 text-sm leading-relaxed text-white/62">{clinical.institution}</p>
+              <div className="relative mt-8 border-y border-white/12 py-5">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-[#E2C98E]">Placement on record</p>
+                <p className="mt-3 text-lg font-semibold">{clinical.role}</p>
+                <p className="mt-1 text-sm text-white/55">{clinical.duration}</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Surgical Clinical Dossier: FGPC Islamabad (Clean Focus, Public Health Removed) */}
-      <section className="relative bg-[#F5F3EB] py-24 lg:py-32 border-b border-[#E2DED2]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#E2DED2]">
-            <div className="space-y-3">
-              <SectionEyebrow number="03" label="CLINICAL ROTATION RECORD" variant="dark" />
-              <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#12141A]">
-                Surgical Internship & Clinical Exposure
-              </h2>
-            </div>
-            <p className="text-sm text-[#5A6172] max-w-md font-sans leading-relaxed">
-              Hands-on observational learning in a premier tertiary care hospital in Islamabad, Pakistan.
-            </p>
-          </div>
-
-          {/* Expanded Luxury Surgical Feature Card */}
-          <div className="rounded-3xl bg-white p-8 sm:p-12 lg:p-14 border border-[#E2DED2] shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-8 space-y-5">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-mono text-xs font-bold tracking-wider text-[#BD903C] uppercase px-3.5 py-1 rounded-full bg-[#FAF9F5] border border-[#E2DED2]">
-                    SURGICAL INTERNSHIP
-                  </span>
-                  <span className="font-mono text-xs text-[#848A96] font-semibold">
-                    14 June – 15 July &bull; FGPC Islamabad
-                  </span>
-                </div>
-
-                <h3 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#12141A] leading-tight">
-                  Federal Government Polyclinic Hospital (FGPC)
-                </h3>
-
-                <p className="text-xs sm:text-sm font-mono text-[#5A6172] flex items-center gap-2">
-                  <Stethoscope className="w-4 h-4 text-[#BD903C]" />
-                  <span>Surgery Department Intern &bull; Tertiary Hospital Environment</span>
-                </p>
-
-                <blockquote className="text-base sm:text-lg text-[#2C313E] leading-relaxed font-sans italic border-l-2 border-[#BD903C] pl-5 pt-1">
-                  &ldquo;{PROFILE.clinicalExperience.approvedDescription}&rdquo;
-                </blockquote>
-              </div>
-
-              {/* Institution Quick Stats */}
-              <div className="lg:col-span-4 p-6 sm:p-8 rounded-2xl bg-[#FAF9F5] border border-[#E2DED2] space-y-4">
-                <span className="font-mono text-xs tracking-widest text-[#BD903C] uppercase font-bold block">
-                  ROTATION HIGHLIGHTS
-                </span>
-                <div className="space-y-3 text-xs font-sans text-[#2C313E]">
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#BD903C] flex-shrink-0" />
-                    <span>Operating Theatre Protocol Observation</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#BD903C] flex-shrink-0" />
-                    <span>In-Patient Ward Rounds & Documentation</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#BD903C] flex-shrink-0" />
-                    <span>Multidisciplinary Surgical Team Coordination</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#BD903C] flex-shrink-0" />
-                    <span>Surgical Patient Consultation Protocols</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-[#E2DED2] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="text-xs font-mono text-[#848A96] uppercase tracking-wider font-semibold">
-                TERTIARY SURGICAL RECORD &bull; ISLAMABAD, PAKISTAN
-              </span>
-              <Link
-                href="/clinical-experience"
-                className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-bold font-mono tracking-widest uppercase bg-[#12141A] text-white hover:bg-[#BD903C] hover:text-[#12141A] transition-all duration-300 shadow-sm"
-              >
-                <span>EXPLORE CLINICAL RECORD</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              <Link href="/clinical-experience" className="relative mt-7 inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.13em] text-[#E2C98E]">
+                Explore clinical chapter <ArrowRight className="h-3.5 w-3.5" />
               </Link>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#15171C] px-6 py-20 text-[#F7F3EA] sm:py-24 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#E2C98E]">Personal foundation</p>
+            <h2 className="mt-4 font-editorial text-4xl font-semibold leading-[.95] tracking-[-.04em] sm:text-5xl">{PROFILE.about.heading}</h2>
+            <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/65 sm:text-base">{PROFILE.about.body[0]}</p>
+            <Link href="/about" className="group mt-8 inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#E2C98E]">
+              Read the personal profile <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <div className="grid gap-px self-start overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:col-span-7">
+            {PROFILE.about.values.map((value, index) => (
+              <article key={value.title} className="min-h-48 bg-[#15171C] p-6 sm:p-7">
+                <span className="font-mono text-[10px] font-bold tracking-[0.16em] text-[#E2C98E]">0{index + 1}</span>
+                <h3 className="mt-7 font-editorial text-2xl font-semibold">{value.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/55">{value.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#DED9CF] px-6 py-20 sm:py-24 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="rounded-[1.6rem] bg-[#E2C98E] p-8 text-[#211A0E] sm:p-10 lg:col-span-5">
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#634B1E]"><Target className="h-4 w-4" /> Future direction</span>
+            <p className="mt-10 font-mono text-[10px] font-bold uppercase tracking-[0.17em] text-[#725727]">Primary interest</p>
+            <h2 className="mt-3 font-editorial text-5xl font-semibold tracking-[-.05em] sm:text-6xl">{interests.featured.name}</h2>
+            <p className="mt-5 text-sm leading-relaxed text-[#51401F]">{interests.featured.body}</p>
+            <Link href="/interests" className="mt-8 inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#2E2516]">
+              Vision and interests <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+          <div className="lg:col-span-7 lg:pl-8">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#A4772D]">Areas of continued learning</p>
+            <h2 className="mt-4 max-w-xl font-editorial text-4xl font-semibold leading-[.95] tracking-[-.04em] sm:text-5xl">What informs the next chapter.</h2>
+            <div className="mt-9 grid gap-x-7 gap-y-7 sm:grid-cols-2">
+              {interests.additional.map((interest, index) => (
+                <article key={interest.title} className="border-t border-[#D8D1C3] pt-5">
+                  <span className="font-mono text-[10px] font-bold tracking-[0.15em] text-[#B98A38]">0{index + 1}</span>
+                  <h3 className="mt-4 font-editorial text-2xl font-semibold">{interest.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#626671]">{interest.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Career Vision: The 4-Stage Surgical Roadmap (Clean Luminous) */}
-      <section className="relative bg-[#FAF9F5] py-24 lg:py-32 border-b border-[#E2DED2]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-14">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#E2DED2]">
-            <div className="space-y-3">
-              <SectionEyebrow number="04" label="LONG-TERM VISION" variant="dark" />
-              <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#12141A]">
-                The Trajectory Toward Surgery
-              </h2>
-            </div>
-            <p className="text-sm text-[#5A6172] max-w-md font-sans leading-relaxed">
-              Transparent, milestone-based pathway from undergraduate clinical studies to structured postgraduate residency.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PROFILE.interests.careerVision.aspirationalPath.map((step, idx) => {
-              const isCurrent = step.status.includes("In Progress");
-
-              return (
-                <div
-                  key={idx}
-                  className={`p-8 rounded-3xl border transition-all duration-300 space-y-4 ${
-                    isCurrent
-                      ? "bg-white border-[#BD903C] shadow-lg ring-1 ring-[#BD903C]/30"
-                      : "bg-[#F5F3EB] border-[#E2DED2] hover:border-[#BD903C]"
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xl font-bold text-[#BD903C]">
-                      {step.step}
-                    </span>
-                    <span
-                      className={`text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full font-bold ${
-                        isCurrent
-                          ? "bg-[#FAF9F5] text-[#BD903C] border border-[#BD903C]/40"
-                          : "bg-white text-[#848A96] border border-[#E2DED2]"
-                      }`}
-                    >
-                      {step.status}
-                    </span>
-                  </div>
-
-                  <h3 className="font-editorial text-2xl font-bold text-[#12141A]">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed font-sans">
-                    {step.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+      <section className="border-b border-[#DED9CF] bg-[#EFEBE1] px-6 py-8 lg:px-12">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-[#626671] sm:flex-row sm:items-center sm:justify-between">
+          <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-[#A4772D]" /> {PROFILE.location.formatted}</span>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#8B6A2E]">Medical education in progress</span>
         </div>
       </section>
 
-      {/* 6. Compact Precision Correspondence CTA */}
       <CompactCTA />
     </div>
   );
