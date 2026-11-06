@@ -125,7 +125,7 @@ export default function HomeHero() {
         onClick={() => setIsPortraitRevealed((isRevealed) => !isRevealed)}
         aria-pressed={isPortraitRevealed}
         aria-label={isPortraitRevealed ? "Show portrait in black and white" : "Reveal portrait in colour"}
-        className="reference-hero__portrait"
+        className="reference-hero__portrait group"
       >
         <Image
           src="/images/profile.png"
@@ -134,7 +134,7 @@ export default function HomeHero() {
           height={1402}
           priority
           sizes="(max-width: 767px) 94vw, (max-width: 1279px) 58vw, 48vw"
-          className={`reference-hero__portrait-image ${isPortraitRevealed ? "grayscale-0" : "grayscale"}`}
+          className={`reference-hero__portrait-image transition-[filter] duration-700 ease-out group-hover:grayscale-0 ${isPortraitRevealed ? "grayscale-0" : "grayscale"}`}
         />
       </button>
 

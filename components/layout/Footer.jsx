@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Linkedin, Mail, Phone } from "lucide-react";
 import { PROFILE } from "@/content/profile";
 import Logo from "../brand/Logo";
 
@@ -42,32 +43,40 @@ export default function Footer() {
             <h2 id="footer-contact-heading" className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-[#9B9FA8]">
               Get in touch
             </h2>
-            <div className="mt-3 space-y-1.5 text-sm leading-relaxed text-[#9B9FA8]">
+            <div className="mt-4 flex items-center gap-3" aria-label="Direct contact links">
               <a
                 href={`mailto:${PROFILE.contact.email}`}
-                className="block w-fit py-0.5 text-[#F5F2E9] transition-colors hover:text-[#E2C98E] focus-visible:text-[#E2C98E]"
+                aria-label="Email Ebbad Nazir"
+                title="Email"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-[#F5F2E9] transition-all hover:-translate-y-1 hover:border-[#E2C98E] hover:bg-[#E2C98E] hover:text-[#111317] focus-visible:border-[#E2C98E]"
               >
-                {PROFILE.contact.email}
+                <Mail className="h-[18px] w-[18px]" strokeWidth={1.7} aria-hidden="true" />
+              </a>
+              <a
+                href={`tel:${PROFILE.contact.phone}`}
+                aria-label="Call Ebbad Nazir"
+                title="Phone / WhatsApp"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-[#F5F2E9] transition-all hover:-translate-y-1 hover:border-[#E2C98E] hover:bg-[#E2C98E] hover:text-[#111317] focus-visible:border-[#E2C98E]"
+              >
+                <Phone className="h-[18px] w-[18px]" strokeWidth={1.7} aria-hidden="true" />
               </a>
               <a
                 href={PROFILE.contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-fit py-0.5 transition-colors hover:text-[#E2C98E] focus-visible:text-[#E2C98E]"
+                aria-label="Open Ebbad Nazir's LinkedIn profile"
+                title="LinkedIn"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-[#F5F2E9] transition-all hover:-translate-y-1 hover:border-[#E2C98E] hover:bg-[#E2C98E] hover:text-[#111317] focus-visible:border-[#E2C98E]"
               >
-                LinkedIn
+                <Linkedin className="h-[18px] w-[18px]" strokeWidth={1.7} aria-hidden="true" />
               </a>
-              <a
-                href={`tel:${PROFILE.contact.phone}`}
-                className="block w-fit py-0.5 transition-colors hover:text-[#E2C98E] focus-visible:text-[#E2C98E]"
-              >
-                {PROFILE.contact.phoneDisplay}
-              </a>
+            </div>
+            <div className="mt-4 space-y-1 text-xs leading-relaxed text-[#9B9FA8]">
               <Link
                 href="/contact"
-                className="inline-block pt-2 text-[#F5F2E9] transition-colors hover:text-[#E2C98E] focus-visible:text-[#E2C98E]"
+                className="inline-block text-[#F5F2E9] transition-colors hover:text-[#E2C98E] focus-visible:text-[#E2C98E]"
               >
-                Let&apos;s connect &rarr;
+                Send a message &rarr;
               </Link>
             </div>
           </section>

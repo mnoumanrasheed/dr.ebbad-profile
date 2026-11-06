@@ -20,12 +20,12 @@ export default function PortraitReveal({ src, alt, sizes, className = "" }) {
         fill
         priority
         sizes={sizes}
-        className={`object-cover object-top transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.015] ${
+        className={`object-cover object-top transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.015] group-hover:grayscale-0 group-hover:contrast-[1.03] ${
           isRevealed ? "grayscale-0 contrast-[1.03]" : "grayscale contrast-[1.08]"
         } ${className}`}
       />
       <span className="absolute bottom-4 right-4 rounded-full border border-white/25 bg-black/45 px-3 py-1.5 font-mono text-[9px] font-bold tracking-wider text-white/85 opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-        {isRevealed ? "COLOUR VIEW" : "TAP TO REVEAL COLOUR"}
+        {isRevealed ? "COLOUR VIEW" : "HOVER TO REVEAL COLOUR"}
       </span>
     </button>
   );

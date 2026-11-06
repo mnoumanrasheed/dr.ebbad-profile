@@ -2,9 +2,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpen,
   GraduationCap,
-  HeartPulse,
   MapPin,
   Stethoscope,
   Target,
@@ -19,8 +17,6 @@ export const metadata = {
     "A medical portfolio documenting Ebbad Nazir's academic record, clinical learning, and developing interest in surgery.",
 };
 
-const overviewIcons = [GraduationCap, Target, Stethoscope, HeartPulse];
-
 export default function HomePage() {
   const clinical = PROFILE.clinicalExperience;
   const interests = PROFILE.interests;
@@ -28,24 +24,6 @@ export default function HomePage() {
   return (
     <div className="bg-[#F7F5F0] text-[#15161A]">
       <HomeHero />
-
-      <section className="border-b border-[#282A2E] bg-[#111317] text-[#F7F3EA]" aria-label="Portfolio overview">
-        <div className="mx-auto grid max-w-7xl divide-y divide-white/10 px-6 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4 lg:px-12">
-          {PROFILE.editorialHighlights.map((item, index) => {
-            const Icon = overviewIcons[index];
-            return (
-              <div key={item.label} className="group min-h-40 px-0 py-7 sm:px-6 lg:px-7">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#E2C98E]">{item.label}</span>
-                  <Icon className="h-4 w-4 text-white/35 transition-colors group-hover:text-[#E2C98E]" />
-                </div>
-                <p className="mt-7 font-editorial text-2xl font-semibold leading-tight text-white">{item.value}</p>
-                <p className="mt-2 text-xs leading-relaxed text-white/50">{item.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
 
       <section id="portfolio-record" className="scroll-mt-24 border-b border-[#DED9CF] px-6 py-20 sm:py-24 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-7xl">

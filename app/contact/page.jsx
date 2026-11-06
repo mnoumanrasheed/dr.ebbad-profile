@@ -1,4 +1,4 @@
-import { ArrowUpRight, Clock, ShieldCheck } from "lucide-react";
+import { Clock, ShieldCheck } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import SectionEyebrow from "@/components/ui/SectionEyebrow";
 import ContactForm from "@/components/sections/ContactForm";
@@ -28,55 +28,16 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-24 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Direct Channels & Information */}
+          {/* Left Column: Contact context - direct links live in the site footer. */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-3">
               <SectionEyebrow number="C.01" label="AUTHENTIC CONTACT CHANNELS" variant="dark" />
               <h2 className="font-editorial text-3xl sm:text-4xl font-semibold tracking-tight text-[#12141A]">
-                Verified Communication Lines
+                Start a thoughtful conversation.
               </h2>
               <p className="text-sm sm:text-base text-[#5A6172] font-sans leading-relaxed">
-                Direct methods to reach Ebbad Nazir for academic, clinical, or public health conversations.
+                For academic, clinical, or public-health conversations, use the message form. Direct contact links are available in the footer on every page.
               </p>
-            </div>
-
-            <div className="space-y-4">
-              {c.channels.filter((chan) => chan.label !== "Location").map((chan, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-2xl bg-white p-6 border border-[#E2DED2] shadow-sm hover:border-[#BD903C] hover:shadow-md transition-all duration-300 space-y-2 relative"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs text-[#BD903C] uppercase tracking-widest font-bold">
-                      {chan.label}
-                    </span>
-                    <span className="text-[11px] font-mono text-[#848A96] font-semibold">
-                      {chan.helper}
-                    </span>
-                  </div>
-
-                  {chan.href ? (
-                    <a
-                      href={chan.href}
-                      target={chan.href.startsWith("http") ? "_blank" : undefined}
-                      rel={chan.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="group inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-[#12141A] hover:text-[#BD903C] transition-colors pt-1"
-                    >
-                      <span className="break-all">{chan.value}</span>
-                      <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#BD903C]" />
-                    </a>
-                  ) : (
-                    <div className="pt-1">
-                      <p className="text-base sm:text-lg font-semibold text-[#12141A]">
-                        {chan.value}
-                      </p>
-                      {chan.subtext && (
-                        <p className="text-xs text-[#5A6172] font-mono mt-0.5">{chan.subtext}</p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
             </div>
 
             {/* Contact transparency & privacy assurance */}
