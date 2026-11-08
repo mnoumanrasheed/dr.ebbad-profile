@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { LoaderCircle, MessageCircle, Send, ShieldCheck, Sparkles, X } from "lucide-react";
+import { Bot, LoaderCircle, Send, ShieldCheck, Sparkles, X } from "lucide-react";
 
 const initialMessage = {
   role: "assistant",
@@ -18,12 +18,30 @@ const openingSuggestions = [
 
 export default function PortfolioAssistant() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(false);
+  const [launcherPosition, setLauncherPosition] = useState(null);
   const [messages, setMessages] = useState([initialMessage]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState(openingSuggestions);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const hasEngagedRef = useRef(false);
+  const dragRef = useRef(null);
+  const didDragRef = useRef(false);
+
+  const markEngaged = () => {
+    hasEngagedRef.current = true;
+    setShowPrompt(false);
+  };
+
+  useEffect(() => {
+    const promptTimer = window.setTimeout(() => {
+      if (!hasEngagedRef.current) setShowPrompt(true);
+    }, 5000);
+
+    return () => window.clearTimeout(promptTimer);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -69,12 +87,76 @@ export default function PortfolioAssistant() {
     }
   };
 
+  const toggleAssistant = () => {
+    markEngaged();
+    setIsOpen((open) => !open);
+  };
+
+  const handleLauncherPointerDown = (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+
+    markEngaged();
+    const launcherBounds = event.currentTarget.getBoundingClientRect();
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startPointerX: event.clientX,
+      startPointerY: event.clientY,
+      startX: launcherBounds.left,
+      startY: launcherBounds.top,
+      width: launcherBounds.width,
+      height: launcherBounds.height,
+    };
+    didDragRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handleLauncherPointerMove = (event) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+
+    const deltaX = event.clientX - drag.startPointerX;
+    const deltaY = event.clientY - drag.startPointerY;
+    if (Math.hypot(deltaX, deltaY) > 6) didDragRef.current = true;
+    if (!didDragRef.current) return;
+
+    const inset = 12;
+    setLauncherPosition({
+      right: window.innerWidth - Math.min(Math.max(drag.startX + deltaX, inset), window.innerWidth - drag.width - inset) - drag.width,
+      bottom: window.innerHeight - Math.min(Math.max(drag.startY + deltaY, inset), window.innerHeight - drag.height - inset) - drag.height,
+    });
+  };
+
+  const handleLauncherPointerEnd = (event) => {
+    if (dragRef.current?.pointerId !== event.pointerId) return;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    dragRef.current = null;
+  };
+
+  const handleLauncherClick = () => {
+    if (didDragRef.current) {
+      didDragRef.current = false;
+      return;
+    }
+    toggleAssistant();
+  };
+
+  const openFromPrompt = () => {
+    markEngaged();
+    setIsOpen(true);
+  };
+
   return (
-    <aside className="portfolio-assistant" aria-label="Portfolio assistant">
+    <aside
+      className="portfolio-assistant"
+      aria-label="Portfolio assistant"
+      style={launcherPosition ? { right: `${launcherPosition.right}px`, bottom: `${launcherPosition.bottom}px`, left: "auto", top: "auto" } : undefined}
+    >
       {isOpen && (
         <div className="portfolio-assistant__panel" role="dialog" aria-modal="false" aria-labelledby="portfolio-guide-title">
           <header className="portfolio-assistant__header">
-            <div className="portfolio-assistant__header-icon"><Sparkles size={16} aria-hidden="true" /></div>
+            <div className="portfolio-assistant__header-icon">
+              <img src="/brand/ebbad-nazir-mark-transparent.png" alt="Ebbad Nazir monogram" />
+            </div>
             <div>
               <p className="portfolio-assistant__eyebrow">SITE-GROUNDED GUIDE</p>
               <h2 id="portfolio-guide-title">Portfolio assistant</h2>
@@ -114,9 +196,31 @@ export default function PortfolioAssistant() {
         </div>
       )}
 
-      <button type="button" onClick={() => setIsOpen((open) => !open)} className="portfolio-assistant__launcher" aria-expanded={isOpen} aria-controls="portfolio-guide-title" aria-label={isOpen ? "Close portfolio assistant" : "Open portfolio assistant"}>
-        {isOpen ? <X size={20} /> : <MessageCircle size={21} />}
-        <span>Ask the portfolio</span>
+      {!isOpen && showPrompt && (
+        <div className="portfolio-assistant__prompt">
+          <button type="button" className="portfolio-assistant__prompt-copy" onClick={openFromPrompt}>
+            <span className="portfolio-assistant__prompt-icon"><Sparkles size={13} aria-hidden="true" /></span>
+            <span><strong>Need a hand?</strong> Ask me about Ebbad&apos;s journey.</span>
+          </button>
+          <button type="button" className="portfolio-assistant__prompt-close" onClick={markEngaged} aria-label="Dismiss assistant prompt"><X size={13} /></button>
+        </div>
+      )}
+
+      <button
+        type="button"
+        onClick={handleLauncherClick}
+        onPointerDown={handleLauncherPointerDown}
+        onPointerMove={handleLauncherPointerMove}
+        onPointerUp={handleLauncherPointerEnd}
+        onPointerCancel={handleLauncherPointerEnd}
+        className="portfolio-assistant__launcher"
+        aria-expanded={isOpen}
+        aria-controls="portfolio-guide-title"
+        aria-label={isOpen ? "Close portfolio assistant" : "Open portfolio assistant"}
+      >
+        {isOpen ? <X size={20} /> : <Bot size={24} strokeWidth={1.8} />}
+        <span className="portfolio-assistant__launcher-status" aria-hidden="true" />
+        <span className="sr-only">Ask the portfolio</span>
       </button>
     </aside>
   );

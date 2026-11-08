@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Ebbad Nazir — MBBS Student and Aspiring Surgeon";
+export const alt = "Dr. Ebbad Nazir | Medical Portfolio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "nodejs";
@@ -60,13 +60,13 @@ export default async function OpenGraphImage() {
           }}
         />
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", color: "#E2C98E", fontSize: "20px", fontWeight: 700, letterSpacing: "4px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", color: "#E2C98E", fontSize: "18px", fontWeight: 700, letterSpacing: "3px" }}>
             <img src={logo} width="58" height="42" style={{ objectFit: "contain" }} />
-            MEDICAL PORTFOLIO
+            DR. EBBAD NAZIR / MEDICAL PORTFOLIO
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", maxWidth: "860px" }}>
-            <div style={{ color: "#E2C98E", fontSize: "17px", fontWeight: 700, letterSpacing: "3px" }}>EBBAD NAZIR</div>
+            <div style={{ color: "#E2C98E", fontSize: "17px", fontWeight: 700, letterSpacing: "3px" }}>LEARNING MEDICINE WITH PURPOSE</div>
             <div style={{ display: "flex", flexDirection: "column", marginTop: "18px", fontFamily: "Georgia, serif", fontSize: "75px", fontWeight: 700, lineHeight: 1.02, letterSpacing: "-3px" }}>
               <span>Learning medicine.</span>
               <span>With purpose.</span>
@@ -78,7 +78,7 @@ export default async function OpenGraphImage() {
           </div>
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,.16)", paddingTop: "22px", color: "#E2C98E", fontSize: "17px", fontWeight: 700, letterSpacing: "2px" }}>
-            <span>MBBS • SESSION 2022–2027</span>
+            <span>MBBS STUDENT / SESSION 2022-2027</span>
             <span>THE ART OF PRECISION</span>
           </div>
         </div>

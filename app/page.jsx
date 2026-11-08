@@ -12,9 +12,9 @@ import CompactCTA from "@/components/sections/CompactCTA";
 import { PROFILE } from "@/content/profile";
 
 export const metadata = {
-  title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon - Medical Portfolio",
+  title: "Dr. Ebbad Nazir | Medical Portfolio - Learning Medicine with Purpose",
   description:
-    "A medical portfolio documenting Ebbad Nazir's academic record, clinical learning, and developing interest in surgery.",
+    "A premium medical portfolio documenting Dr. Ebbad Nazir's academic record, clinical learning, and developing interest in surgery.",
 };
 
 export default function HomePage() {

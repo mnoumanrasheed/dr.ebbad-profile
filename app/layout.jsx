@@ -8,10 +8,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dr-ebbad-profile.ve
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
+  applicationName: "Dr. Ebbad Nazir | Medical Portfolio",
+  title: "Dr. Ebbad Nazir | Medical Portfolio",
   description:
-    "Explore the professional medical portfolio of Ebbad Nazir, a fourth-year MBBS student at Rai Medical College, Sargodha (2022–2027), with surgical department internship experience at FGPC Islamabad.",
+    "Dr. Ebbad Nazir's medical portfolio - learning medicine with purpose through academic discipline, clinical experience, and a focused interest in surgery.",
   keywords: [
+    "Dr. Ebbad Nazir",
     "Ebbad Nazir",
     "MBBS Student",
     "Medical Student",
@@ -21,8 +23,8 @@ export const metadata = {
     "Surgery Department Intern",
     "Medical Portfolio",
   ],
-  authors: [{ name: "Ebbad Nazir" }],
-  creator: "Ebbad Nazir",
+  authors: [{ name: "Dr. Ebbad Nazir" }],
+  creator: "Dr. Ebbad Nazir",
   icons: {
     icon: [
       { url: "/brand/ebbad-nazir-mark-transparent.png", type: "image/png" },
@@ -31,26 +33,28 @@ export const metadata = {
     apple: "/brand/ebbad-nazir-mark-transparent.png",
   },
   openGraph: {
-    title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
+    title: "Dr. Ebbad Nazir | Learning Medicine with Purpose",
     description:
-      "Fourth-year MBBS student at Rai Medical College, Sargodha. Surgical department internship at FGPC Islamabad and an aspiring career interest in surgery.",
+      "A refined medical portfolio documenting academic discipline, clinical learning, and a focused interest in surgery.",
     type: "website",
     locale: "en_US",
+    url: "/",
+    siteName: "Dr. Ebbad Nazir | Medical Portfolio",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Ebbad Nazir — MBBS Student and Aspiring Surgeon",
+        alt: "Dr. Ebbad Nazir | Medical Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ebbad Nazir | MBBS Student & Aspiring Surgeon",
+    title: "Dr. Ebbad Nazir | Learning Medicine with Purpose",
     description:
-      "Fourth-year MBBS student at Rai Medical College, Sargodha. The Art of Precision.",
-    images: ["/opengraph-image"],
+      "A premium medical portfolio documenting a journey in medicine, clinical learning, and surgical ambition.",
+    images: [{ url: "/opengraph-image", alt: "Dr. Ebbad Nazir | Medical Portfolio" }],
   },
 };
 
