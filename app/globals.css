@@ -930,6 +930,7 @@ body {
 }
 
 .reference-hero__headline span { display: block; }
+.reference-hero__headline-break { display: none; }
 .reference-hero__headline-accent { color: var(--hero-champagne); }
 
 .reference-hero__intro {
@@ -1050,44 +1051,51 @@ body {
 }
 
 @media (max-width: 767px) {
-  /* Mobile uses a single protected reading zone; the portrait remains expressive without competing with the copy. */
-  .reference-hero { min-height: max(760px, 100svh); }
+  /* Mobile is a separate, portrait-led composition rather than a compressed desktop stage. */
+  .reference-hero {
+    min-height: max(740px, 100svh);
+    background:
+      radial-gradient(circle at 50% 31%, rgba(199, 153, 72, .15), transparent 17rem),
+      radial-gradient(circle at 100% 0%, rgba(51, 61, 91, .20), transparent 24rem),
+      linear-gradient(150deg, #07080a 0%, #0a0b0e 57%, #11131a 100%);
+  }
+  .reference-hero::before { top: 3.75rem; width: min(112vw, 31rem); }
   .reference-hero__words { width: 100%; }
   .reference-hero__orbital-accent { display: none; }
   .reference-hero__word {
     width: auto;
-    font-size: clamp(2.8rem, 12vw, 4.4rem);
+    font-size: clamp(2.85rem, 12.4vw, 4.75rem);
     line-height: .9;
     letter-spacing: -.055em;
-    opacity: .82;
+    opacity: .88;
   }
-  .reference-hero__word--left { left: 5%; top: 15%; }
-  .reference-hero__word--right { right: 4%; top: 15%; font-size: clamp(2.8rem, 12vw, 4.4rem); }
-  .reference-hero::after { background: linear-gradient(180deg, rgba(5,6,8,.12), transparent 30%, rgba(5,6,8,.2) 48%, rgba(5,6,8,.72) 78%, rgba(5,6,8,.92)); }
+  .reference-hero__word--left { left: 5%; top: clamp(9.75rem, 24svh, 12.5rem); }
+  .reference-hero__word--right { right: 5%; top: clamp(13rem, 31svh, 15.5rem); font-size: clamp(2.85rem, 12.4vw, 4.75rem); }
+  .reference-hero::after { background: linear-gradient(180deg, rgba(5,6,8,.08), transparent 30%, rgba(5,6,8,.16) 50%, rgba(5,6,8,.64) 76%, rgba(5,6,8,.92)); }
   .reference-hero__guide--left { left: 1.25rem; }
   .reference-hero__guide--center { left: 50%; }
   .reference-hero__guide--right { left: auto; right: 1.25rem; }
   .reference-hero__folio { display: none; }
   .reference-hero__portrait {
-    top: 5.25rem;
-    left: 60%;
+    top: 3.75rem;
+    left: 50%;
     bottom: auto;
-    width: min(82vw, 360px);
+    width: min(88vw, 390px);
     height: auto;
   }
   .reference-hero__portrait-image { width: 100%; height: auto; }
   .reference-hero__statement {
     top: auto;
-    right: 1.25rem;
-    bottom: max(1.25rem, env(safe-area-inset-bottom));
-    left: 1.25rem;
+    right: clamp(1rem, 4vw, 1.5rem);
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: clamp(1rem, 4vw, 1.5rem);
     width: auto;
-    padding: 1rem;
-    border: 1px solid rgba(234,211,157,.17);
-    border-radius: 1rem;
-    background: rgba(8,9,11,.64);
-    box-shadow: 0 16px 38px rgba(0,0,0,.2);
-    backdrop-filter: blur(10px);
+    padding: .9rem .95rem .95rem;
+    border: 1px solid rgba(234,211,157,.2);
+    border-radius: .9rem;
+    background: linear-gradient(135deg, rgba(17,18,19,.86), rgba(7,8,10,.78));
+    box-shadow: 0 14px 34px rgba(0,0,0,.28), inset 0 1px rgba(255,246,221,.035);
+    backdrop-filter: blur(14px);
   }
   .reference-hero__mobile-status {
     display: flex;
@@ -1102,21 +1110,30 @@ body {
     text-transform: uppercase;
   }
   .reference-hero__mobile-status span { width: .42rem; height: .42rem; border-radius: 999px; background: var(--hero-champagne); box-shadow: 0 0 0 3px rgba(234,211,157,.1); }
-  .reference-hero__headline { font-size: clamp(2.05rem, 9vw, 2.8rem); line-height: .86; }
-  .reference-hero__intro { max-width: 30rem; margin-top: .8rem; font-size: .72rem; line-height: 1.55; }
-  .reference-hero__actions { align-items: stretch; flex-direction: column; gap: .5rem; margin-top: 1rem; width: 100%; }
-  .reference-hero__button { justify-content: space-between; width: 100%; min-height: 42px; padding: .68rem .85rem; font-size: .55rem; gap: .5rem; }
+  .reference-hero__headline { font-size: clamp(1.85rem, 8.35vw, 2.45rem); line-height: .9; }
+  .reference-hero__headline span { display: inline; }
+  .reference-hero__headline-break { display: block; }
+  .reference-hero__intro { max-width: 32rem; margin-top: .62rem; font-size: clamp(.67rem, 2.9vw, .74rem); line-height: 1.5; }
+  .reference-hero__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: .45rem; margin-top: .85rem; width: 100%; }
+  .reference-hero__button { justify-content: space-between; width: 100%; min-height: 40px; padding: .62rem .68rem; font-size: clamp(.48rem, 2.1vw, .55rem); gap: .35rem; }
   .reference-hero__aside { display: none; }
 }
 
 @media (max-width: 390px) {
-  .reference-hero { min-height: max(740px, 100svh); }
+  .reference-hero__portrait { width: min(88vw, 350px); }
   .reference-hero__word--left { left: 4%; }
-  .reference-hero__word--right { right: 3%; }
-  .reference-hero__portrait { width: min(84vw, 330px); }
-  .reference-hero__statement { right: 1rem; left: 1rem; padding: .9rem; }
-  .reference-hero__headline { font-size: clamp(1.85rem, 8.5vw, 2.2rem); }
-  .reference-hero__intro { font-size: .67rem; }
+  .reference-hero__word--right { right: 4%; }
+}
+
+@media (max-width: 350px) {
+  .reference-hero { min-height: max(740px, 100svh); }
+  .reference-hero__portrait { top: 4.25rem; width: min(87vw, 320px); }
+  .reference-hero__word { font-size: clamp(2.55rem, 12.2vw, 2.8rem); }
+  .reference-hero__word--right { font-size: clamp(2.55rem, 12.2vw, 2.8rem); top: clamp(12.25rem, 30svh, 14rem); }
+  .reference-hero__statement { padding: .82rem; }
+  .reference-hero__headline { font-size: 1.72rem; }
+  .reference-hero__intro { font-size: .66rem; }
+  .reference-hero__actions { grid-template-columns: 1fr; gap: .4rem; margin-top: .72rem; }
 }
 
 /* Film grain / medical precision subtle noise overlay */

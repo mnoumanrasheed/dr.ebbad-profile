@@ -34,9 +34,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-4 sm:px-6 pointer-events-none transition-all duration-500">
+      <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-3 sm:px-6 pointer-events-none transition-all duration-500">
         <div
-          className={`max-w-7xl mx-auto px-4 sm:px-5 py-3 rounded-[1.35rem] pointer-events-auto transition-all duration-500 backdrop-blur-2xl flex items-center justify-between gap-3 animate-[header-reveal_700ms_cubic-bezier(0.16,1,0.3,1)_both] ${
+          className={`max-w-7xl mx-auto px-3 sm:px-5 py-3 rounded-[1.35rem] pointer-events-auto transition-all duration-500 backdrop-blur-2xl flex items-center justify-between gap-2 sm:gap-3 animate-[header-reveal_700ms_cubic-bezier(0.16,1,0.3,1)_both] ${
             isLightMode
               ? "bg-[#0B0D12]/[0.96] shadow-[0_18px_45px_rgba(0,0,0,0.30)]"
               : "bg-[#0B0D12]/90 shadow-[0_18px_48px_rgba(0,0,0,0.50)]"
@@ -81,10 +81,10 @@ export default function Header() {
           </nav>
 
           {/* 3. Right: SINGLE Luxury CONNECT Action (No duplicate contact link) */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <Link
               href="/contact"
-              className={`group relative inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-[10px] font-bold tracking-[0.14em] uppercase transition-all duration-300 active:scale-95 overflow-hidden shadow-sm ${
+              className={`group relative inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 rounded-xl text-[9px] sm:text-[10px] font-bold tracking-[0.14em] uppercase transition-all duration-300 active:scale-95 overflow-hidden shadow-sm ${
                 isLightMode
                   ? "bg-[#E2C98E] text-[#12141A] hover:bg-white hover:text-[#12141A] shadow-[0_0_20px_rgba(226,201,142,0.24)]"
                   : "bg-[#E2C98E] text-[#0E1117] hover:bg-white hover:text-[#0E1117] shadow-[0_0_20px_rgba(226,201,142,0.35)]"
@@ -102,7 +102,7 @@ export default function Header() {
               aria-label="Open Navigation Menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
-              className={`md:hidden p-2.5 rounded-xl border transition-all ${
+              className={`md:hidden p-2 rounded-xl border transition-all ${
                 isLightMode
                   ? "border-white/20 bg-white/[0.08] text-white hover:bg-white/15"
                   : "border-white/15 bg-white/[0.05] text-white hover:bg-white/10"

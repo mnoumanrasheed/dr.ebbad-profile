@@ -141,9 +141,9 @@ export default function HomeHero() {
       <div ref={statementRef} className="reference-hero__statement">
         <p className="reference-hero__mobile-status"><span aria-hidden="true" /> MBBS &middot; {PROFILE.session}</p>
         <h2 className="reference-hero__headline">
-          <span data-statement-line>Learning</span>
-          <span data-statement-line>Medicine.</span>
-          <span data-statement-line>With</span>
+          <span data-statement-line>Learning</span>{" "}
+          <span data-statement-line>Medicine.</span><br className="reference-hero__headline-break" />
+          <span data-statement-line>With</span>{" "}
           <span data-statement-line className="reference-hero__headline-accent">Purpose.</span>
         </h2>
         <p data-statement-detail className="reference-hero__intro">
