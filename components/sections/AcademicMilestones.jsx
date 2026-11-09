@@ -18,7 +18,7 @@ export default function AcademicMilestones() {
             <p className="font-mono text-[10px] font-semibold tracking-[0.2em] text-[#A4772D] uppercase">Academic journey</p>
             <h2 className="mt-3 font-editorial text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">MBBS Academic Progress</h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-[#686A70]">A focused five-year medical education at Rai Medical College, with current learning centred on clinical wards.</p>
+          <p className="max-w-sm text-sm leading-relaxed text-[#686A70]">A focused five-year Bachelor of Medicine, Bachelor of Surgery (MBBS) education at Rai Medical College, with current learning centred on clinical wards.</p>
         </header>
 
         <div className="mt-9 overflow-hidden rounded-[1.75rem] border border-[#D7D1C5] bg-[#FCFBF8] shadow-[0_18px_50px_rgba(40,34,22,0.08)] lg:grid lg:grid-cols-12">
@@ -53,7 +53,7 @@ export default function AcademicMilestones() {
         </div>
 
         <div className="mt-5 grid gap-5 md:grid-cols-3">
-          <article className="border-t-2 border-[#B98735] bg-[#E4C77E] px-6 py-7"><p className="font-mono text-[10px] tracking-[0.18em] text-[#5D4821] uppercase">Admission merit</p><p className="mt-5 font-editorial text-6xl leading-none tracking-[-0.06em]">83<span className="text-3xl">%</span></p><p className="mt-3 text-xs leading-relaxed text-[#5D4821]">Medical admission aggregate on authenticated record.</p></article>
+          <article className="border-t-2 border-[#B98735] bg-[#E4C77E] px-6 py-7"><p className="font-mono text-[10px] tracking-[0.18em] text-[#5D4821] uppercase">MDCAT aggregate</p><p className="mt-5 font-editorial text-6xl leading-none tracking-[-0.06em]">83<span className="text-3xl">%</span></p><p className="mt-3 text-xs leading-relaxed text-[#5D4821]">Verified MDCAT aggregate, separate from the MBBS degree currently in progress.</p></article>
           <article className="border border-[#D7D1C5] bg-[#FCFBF8] px-6 py-7"><p className="font-mono text-[10px] tracking-[0.18em] text-[#8A887F] uppercase">Current focus</p><p className="mt-5 font-editorial text-3xl">Clinical Wards</p><p className="mt-3 text-xs leading-relaxed text-[#686A70]">Applying classroom knowledge to structured clinical learning.</p></article>
           <article className="flex flex-col justify-between bg-[#202227] px-6 py-7 text-[#F7F3EA]"><div><p className="flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] text-[#E2C98E] uppercase"><Stethoscope className="h-4 w-4" /> Clinical exposure</p><p className="mt-5 font-editorial text-3xl">FGPC Islamabad</p><p className="mt-2 text-xs text-white/60">Surgery Department Intern · 14 June—15 July</p></div><Link href="/clinical-experience" className="mt-7 inline-flex items-center gap-2 text-xs font-semibold text-[#E2C98E] hover:text-white">View clinical record <ArrowUpRight className="h-4 w-4" /></Link></article>
         </div>

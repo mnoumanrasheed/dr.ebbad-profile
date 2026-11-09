@@ -19,7 +19,7 @@ import { PROFILE } from "@/content/profile";
 export const metadata = {
   title: "About Ebbad Nazir | Beyond the White Coat",
   description:
-    "Learn about Ebbad Nazir, a fourth-year MBBS student at Rai Medical College, Sargodha, his academic path, personal values, and aspiring interest in surgery.",
+    "Learn about Ebbad Nazir, a fourth-year Bachelor of Medicine, Bachelor of Surgery (MBBS) student at Rai Medical College, Sargodha, his academic path, personal values, and aspiring interest in surgery.",
 };
 
 const VALUE_ICONS = {

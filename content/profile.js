@@ -30,11 +30,11 @@ export const PROFILE = {
   signatureLine: "The Art of Precision.",
   heroEyebrow: "MEDICAL PORTFOLIO / 2026",
   heroIntro:
-    "Fourth-year MBBS student at Rai Medical College, Sargodha, driven by curiosity, clinical learning, and a growing interest in surgery.",
+    "Fourth-year Bachelor of Medicine, Bachelor of Surgery (MBBS) student at Rai Medical College, Sargodha, driven by curiosity, clinical learning, and a growing interest in surgery.",
 
   editorialHighlights: [
     { label: "Session", value: "2022–2027", desc: "MBBS Degree In Progress" },
-    { label: "Admission", value: "83%", desc: "Medical Admission Aggregate" },
+    { label: "MDCAT", value: "83%", desc: "MDCAT Aggregate" },
     { label: "Internship", value: "FGPC Islamabad", desc: "Surgery Department Intern" },
     { label: "Specialty", value: "Surgery", desc: "Aspiring Career Focus" },
   ],
@@ -51,9 +51,9 @@ export const PROFILE = {
       detail: "Internship experience at FGPC, Islamabad",
     },
     {
-      label: "Academic Merit",
+      label: "MDCAT",
       title: "83% Aggregate",
-      detail: "Verified medical admission standing",
+      detail: "Verified MDCAT aggregate",
     },
     {
       label: "Career Direction",
@@ -66,7 +66,7 @@ export const PROFILE = {
     heading: "Beyond the White Coat.",
     subheading: "A passion for medicine. A future shaped by curiosity and care.",
     body: [
-      "I am Ebbad Nazir, a fourth-year MBBS student at Rai Medical College, Sargodha, pursuing my medical education as part of the 2022–2027 session. My interest in medicine is driven by a desire to understand human health, continue learning, and contribute meaningfully to patient-centered care.",
+      "I am Ebbad Nazir, a fourth-year Bachelor of Medicine, Bachelor of Surgery (MBBS) student at Rai Medical College, Sargodha, pursuing my medical education as part of the 2022–2027 session. My interest in medicine is driven by a desire to understand human health, continue learning, and contribute meaningfully to patient-centered care.",
       "I have a growing interest in surgery, where knowledge, precision, judgment, and teamwork come together. My exposure to the Surgery Department at Federal Government Polyclinic Hospital and participation in an immunization awareness campaign have further strengthened my motivation to learn and serve.",
     ],
     values: [
@@ -114,11 +114,11 @@ export const PROFILE = {
           "Rigorous pre-medical coursework in human biology, organic chemistry, and analytical reasoning with academic excellence.",
       },
       {
-        degree: "MBBS (In Progress)",
+        degree: "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
         institution: "Rai Medical College, Sargodha",
         period: "Session 2022–2027",
-        score: "83%",
-        scoreLabel: "Medical Admission Aggregate",
+        score: "In Progress",
+        scoreLabel: "MBBS Degree Status",
         badge: "Current — Fourth Year",
         details:
           "Comprehensive undergraduate medical curriculum encompassing pre-clinical sciences, pathology, pharmacology, and current clinical rotations.",

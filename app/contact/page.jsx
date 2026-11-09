@@ -7,7 +7,7 @@ import { PROFILE } from "@/content/profile";
 export const metadata = {
   title: "Contact | Ebbad Nazir — Professional Correspondence",
   description:
-    "Direct contact channels for Ebbad Nazir, fourth-year MBBS student at Rai Medical College, Sargodha. Reach out via email, phone, or LinkedIn.",
+    "Direct contact channels for Ebbad Nazir, a fourth-year Bachelor of Medicine, Bachelor of Surgery (MBBS) student at Rai Medical College, Sargodha. Reach out via email, phone, or LinkedIn.",
 };
 
 export default function ContactPage() {

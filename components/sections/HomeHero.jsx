@@ -1,16 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import CinematicHeroAccent from "@/components/three/CinematicHeroAccent";
 import { PROFILE } from "@/content/profile";
-
-const CinematicHeroAccent = dynamic(() => import("@/components/three/CinematicHeroAccent"), {
-  ssr: false,
-  loading: () => null,
-});
 
 export default function HomeHero() {
   const stageRef = useRef(null);
@@ -29,70 +24,74 @@ export default function HomeHero() {
     let removeParallax = () => {};
     let cancelled = false;
 
-    import("gsap").then(({ default: gsap }) => {
-      if (cancelled || !stageRef.current) return;
+    import("gsap")
+      .then(({ default: gsap }) => {
+        if (cancelled || !stageRef.current) return;
 
-      context = gsap.context(() => {
-        const lines = statementRef.current?.querySelectorAll("[data-statement-line]");
-        const details = statementRef.current?.querySelectorAll("[data-statement-detail]");
-        const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+        context = gsap.context(() => {
+          const lines = statementRef.current?.querySelectorAll("[data-statement-line]");
+          const details = statementRef.current?.querySelectorAll("[data-statement-detail]");
+          const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        timeline
-          .from(guidesRef.current, { opacity: 0, duration: 0.55 })
-          .from([nameLeftRef.current, nameRightRef.current], {
-            opacity: 0,
-            y: 20,
-            duration: 0.55,
-          }, 0.08)
-          .from(portraitRef.current, {
-            opacity: 0,
-            y: 54,
-            scale: 0.96,
-            duration: 1.02,
-          }, 0.28)
-          .from(lines, { opacity: 0, y: 22, stagger: 0.08, duration: 0.5 }, 0.48)
-          .from(details, { opacity: 0, y: 14, stagger: 0.09, duration: 0.45 }, 0.82)
-          .from(rightCopyRef.current, { opacity: 0, y: 14, duration: 0.5 }, 1.02);
+          timeline
+            .from(guidesRef.current, { opacity: 0, duration: 0.55 })
+            .from([nameLeftRef.current, nameRightRef.current], {
+              opacity: 0,
+              y: 20,
+              duration: 0.55,
+            }, 0.08)
+            .from(portraitRef.current, {
+              opacity: 0,
+              y: 54,
+              scale: 0.96,
+              duration: 1.02,
+            }, 0.28)
+            .from(lines, { opacity: 0, y: 22, stagger: 0.08, duration: 0.5 }, 0.48)
+            .from(details, { opacity: 0, y: 14, stagger: 0.09, duration: 0.45 }, 0.82)
+            .from(rightCopyRef.current, { opacity: 0, y: 14, duration: 0.5 }, 1.02);
 
-        if (!window.matchMedia("(pointer: fine)").matches) return;
+          if (!window.matchMedia("(pointer: fine)").matches) return;
 
-        const portraitX = gsap.quickTo(portraitRef.current, "x", { duration: 0.9, ease: "power3.out" });
-        const portraitY = gsap.quickTo(portraitRef.current, "y", { duration: 0.9, ease: "power3.out" });
-        const nameLeftX = gsap.quickTo(nameLeftRef.current, "x", { duration: 1.1, ease: "power3.out" });
-        const nameLeftY = gsap.quickTo(nameLeftRef.current, "y", { duration: 1.1, ease: "power3.out" });
-        const nameRightX = gsap.quickTo(nameRightRef.current, "x", { duration: 1.1, ease: "power3.out" });
-        const nameRightY = gsap.quickTo(nameRightRef.current, "y", { duration: 1.1, ease: "power3.out" });
+          const portraitX = gsap.quickTo(portraitRef.current, "x", { duration: 0.9, ease: "power3.out" });
+          const portraitY = gsap.quickTo(portraitRef.current, "y", { duration: 0.9, ease: "power3.out" });
+          const nameLeftX = gsap.quickTo(nameLeftRef.current, "x", { duration: 1.1, ease: "power3.out" });
+          const nameLeftY = gsap.quickTo(nameLeftRef.current, "y", { duration: 1.1, ease: "power3.out" });
+          const nameRightX = gsap.quickTo(nameRightRef.current, "x", { duration: 1.1, ease: "power3.out" });
+          const nameRightY = gsap.quickTo(nameRightRef.current, "y", { duration: 1.1, ease: "power3.out" });
 
-        const handlePointer = (event) => {
-          const bounds = stageRef.current.getBoundingClientRect();
-          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-          portraitX(x * 7);
-          portraitY(y * 5);
-          nameLeftX(x * -12);
-          nameLeftY(y * -7);
-          nameRightX(x * -12);
-          nameRightY(y * -7);
-        };
+          const handlePointer = (event) => {
+            const bounds = stageRef.current.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            portraitX(x * 7);
+            portraitY(y * 5);
+            nameLeftX(x * -12);
+            nameLeftY(y * -7);
+            nameRightX(x * -12);
+            nameRightY(y * -7);
+          };
 
-        const reset = () => {
-          portraitX(0);
-          portraitY(0);
-          nameLeftX(0);
-          nameLeftY(0);
-          nameRightX(0);
-          nameRightY(0);
-        };
+          const reset = () => {
+            portraitX(0);
+            portraitY(0);
+            nameLeftX(0);
+            nameLeftY(0);
+            nameRightX(0);
+            nameRightY(0);
+          };
 
-        const stage = stageRef.current;
-        stage.addEventListener("pointermove", handlePointer, { passive: true });
-        stage.addEventListener("pointerleave", reset);
-        removeParallax = () => {
-          stage.removeEventListener("pointermove", handlePointer);
-          stage.removeEventListener("pointerleave", reset);
-        };
-      }, stageRef);
-    });
+          const stage = stageRef.current;
+          stage.addEventListener("pointermove", handlePointer, { passive: true });
+          stage.addEventListener("pointerleave", reset);
+          removeParallax = () => {
+            stage.removeEventListener("pointermove", handlePointer);
+            stage.removeEventListener("pointerleave", reset);
+          };
+        }, stageRef);
+      })
+      .catch(() => {
+        // The entrance animation is decorative; the page remains fully usable if it cannot load.
+      });
 
     return () => {
       cancelled = true;
@@ -147,7 +146,7 @@ export default function HomeHero() {
           <span data-statement-line className="reference-hero__headline-accent">Purpose.</span>
         </h2>
         <p data-statement-detail className="reference-hero__intro">
-          An MBBS student building a future through learning, discipline, and compassionate care.
+          A Bachelor of Medicine, Bachelor of Surgery (MBBS) student building a future through learning, discipline, and compassionate care.
         </p>
         <div data-statement-detail className="reference-hero__actions">
           <Link href="/about" className="reference-hero__button reference-hero__button--primary">

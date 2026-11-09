@@ -8,7 +8,7 @@ import { PROFILE } from "@/content/profile";
 export const metadata = {
   title: "Education | Ebbad Nazir — Academic Foundation",
   description:
-    "Explore the verified academic trajectory of Ebbad Nazir: Matriculation 88%, F.Sc. Pre-Medical 94%, and MBBS at Rai Medical College Sargodha (Session 2022–2027) with 83% medical admission aggregate.",
+    "Explore the verified academic trajectory of Ebbad Nazir: Matriculation 88%, F.Sc. Pre-Medical 94%, an 83% MDCAT aggregate, and Bachelor of Medicine, Bachelor of Surgery (MBBS) in progress at Rai Medical College Sargodha (Session 2022–2027).",
 };
 
 export default function EducationPage() {
@@ -35,15 +35,15 @@ export default function EducationPage() {
                 OFFICIAL RECORD VERIFICATION
               </span>
               <h2 className="font-editorial text-2xl sm:text-3xl font-semibold text-[#12141A]">
-                Medical Admission Aggregate & Academic Records
+                MDCAT Aggregate & Academic Records
               </h2>
               <p className="text-sm sm:text-base text-[#5A6172] max-w-2xl leading-relaxed font-sans">
-                Academic metrics below represent authenticated board exam results and the official medical college admission aggregate (83%). MBBS marks are not represented as completed degree GPAs because the degree is actively in progress (fourth year, Session 2022–2027).
+                Academic metrics below represent authenticated board exam results and the MDCAT aggregate (83%). This is not a Bachelor of Medicine, Bachelor of Surgery (MBBS) progress score or degree GPA; the MBBS degree is actively in progress (fourth year, Session 2022–2027).
               </p>
             </div>
             <div className="flex-shrink-0 p-6 rounded-2xl bg-[#FAF9F5] border border-[#BD903C]/40 text-center font-mono min-w-[190px]">
               <span className="block text-4xl sm:text-5xl font-black text-[#BD903C] tracking-tight font-editorial">83%</span>
-              <span className="text-[11px] text-[#5A6172] uppercase tracking-wider block mt-1 font-semibold">Admission Aggregate</span>
+              <span className="text-[11px] text-[#5A6172] uppercase tracking-wider block mt-1 font-semibold">MDCAT Aggregate</span>
             </div>
           </div>
         </div>
@@ -182,7 +182,7 @@ export default function EducationPage() {
                 Rai Medical College
               </p>
               <p className="text-xs sm:text-sm text-[#5A6172] leading-relaxed">
-                83% admission aggregate, now actively in 4th year clinical rotations.
+                MBBS in progress, with an 83% MDCAT aggregate on record.
               </p>
             </div>
           </div>
